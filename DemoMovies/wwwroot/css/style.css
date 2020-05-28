@@ -1,0 +1,240 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(93deg, rgb(19, 31, 41) 9%, rgb(43, 59, 68) 91%);
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(93deg, rgb(19, 31, 41) 9%, rgb(43, 59, 68) 91%);
+    overflow-x: hidden;
+    transition: 1s;
+    padding-top: 1%;
+}
+
+    .sidenav a {
+        padding: 10px 10px 10px 22px;
+        text-decoration: none;
+        outline: none;
+        border: none;
+        font-family: 'Rock Salt';
+        color: rgb(72, 71, 99);
+        display: block;
+        padding-top:5%;
+        margin-top:5%;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+            text-decoration: none;
+        }
+
+        .sidenav a:after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: flex;
+            background: #f1f1f1;
+        }
+
+        .sidenav a:hover::after {
+            width: 63%;
+            transition: 3s;
+        }
+
+    .sidenav .closebtn::after {
+        height: 0px;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: -2%;
+        right: 0;
+        font-size: 36px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.bar-container {
+    display: inline-block;
+    cursor: pointer;
+    margin: 1%;
+    margin-top: 3%;
+    position: absolute;
+    top: 0;
+}
+
+.bars {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(72, 71, 99);
+    margin: 6px 0;
+}
+
+#logo-container {
+    text-align: center;
+    padding: 2%;
+}
+
+#logo {
+    text-decoration:none;
+    font-size: 350%;
+    font-weight: 900;
+    color: rgb(89, 94, 107);
+    font-family: 'Rock Salt';
+    margin: 0 auto;
+}
+
+.container {
+    position: relative;
+    margin-top: 1%;
+}
+
+.card{
+    background-color: inherit;
+    cursor:pointer;
+    border: none;
+    
+}
+
+.col-md-3 {
+    margin-top: 2%;
+}
+
+.card-title {
+    color: rgb(98, 118, 163);
+    font-family: 'Roboto';
+}
+
+.card-text {
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.movie-details {
+    text-align: center;
+}
+
+.movie-title {
+    margin-top: 1%;
+    font-size: 350%;
+    font-weight: 900;
+    color: rgb(89, 94, 107);
+    font-family: 'Rock Salt';
+}
+
+.movie-img {
+    width: 50%;
+}
+
+.movie-desc {
+    width: 70%;
+    margin: 0 auto;
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.movie-genre {
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.movie-cast {
+    margin-top: 1%;
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.movie-date-created {
+    margin-top: 1%;
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.movie-views {
+    margin-top: 1%;
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.about-us {
+    text-align: center;
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+.contact-us {
+    text-align: center;
+    color: rgb(137,143,147);
+    font-family: 'Roboto';
+}
+
+
+.col-md-6 {
+    text-align: center;
+    color: rgb(72, 71, 99);
+    font-family: 'Rock Salt';
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-top: 2%;
+}
+
+.form-control {
+    font-family: 'Roboto';
+}
+
+.submit-button {
+    color: rgb(72, 71, 99);
+    outline: none;
+    border: none;
+    background-color: inherit;
+    font-size: x-large;
+}
+
+    .submit-button:hover {
+        color: #f1f1f1;
+        transition: 2s;
+    }
+
+.search-bar {
+    position: absolute;
+    right: -8%;
+    top: -12%;
+}
+
+.btn {
+    position: absolute;
+    right: -37%;
+    bottom: 28%;
+    background-color:inherit;
+    border: none;
+}

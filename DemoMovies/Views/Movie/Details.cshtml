@@ -1,0 +1,21 @@
+﻿@model DemoMovies.Data.Movie
+
+@{ 
+    Layout = "_Layout";
+    ViewBag.PageName = "Movie Details";
+}
+
+    <div class="movie-details">
+        <img class="movie-img" src="@Model.ImageUrl" />
+        <div class="movie-title">@Model.Title (@Model.YearReleased)</div>
+        <div class="movie-desc">
+            <p>@Model.Description</p>
+        </div>
+        <div class="movie-genre">Genre: @Model.Genre</div>
+        <div class="movie-cast">
+            Cast:
+                <span>@Model.Cast</span>
+        </div>
+        <div class="movie-date-created">Date Created: @Model.DateCreated</div>
+        <div class="movie-views">@Model.Views Views</div>
+    </div>

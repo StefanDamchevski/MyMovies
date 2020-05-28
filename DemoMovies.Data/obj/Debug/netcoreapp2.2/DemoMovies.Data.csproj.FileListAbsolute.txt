@@ -1,0 +1,8 @@
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\bin\Debug\netcoreapp2.2\DemoMovies.Data.deps.json
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\bin\Debug\netcoreapp2.2\DemoMovies.Data.dll
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\bin\Debug\netcoreapp2.2\DemoMovies.Data.pdb
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\obj\Debug\netcoreapp2.2\DemoMovies.Data.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\obj\Debug\netcoreapp2.2\DemoMovies.Data.AssemblyInfoInputs.cache
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\obj\Debug\netcoreapp2.2\DemoMovies.Data.AssemblyInfo.cs
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\obj\Debug\netcoreapp2.2\DemoMovies.Data.dll
+C:\Users\Stefan\Desktop\MyMovies-master\MyMovies-master\DemoMovies.Data\obj\Debug\netcoreapp2.2\DemoMovies.Data.pdb
