@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "//6daZU9HhcCig6HPbkbZHmDpAQwtXXLw0GUmrOWxc6Mreulj8kog1K3nRzHezJ/MHI+HoRLl1fs+x0IKxZV6Q==",
+  "dgSpecHash": "uLf7fQmQNG3L/9omjmW6HtQghdtlihS3D6dvBmn0710L3Y0vZREy3BJpgcGAzBW71me0YYVnMn0bvD4QMWPcmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Stefan\\Desktop\\MyMovies-master\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
+  "projectFilePath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

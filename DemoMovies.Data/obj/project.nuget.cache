@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "65XLtVmyONFMeuC9e9ewoZm7nrSa2WotG2Mrbx1wpQve+CvBcrjuEwXeNbKLEa0qoCzyl4/Rxo0sDSfzULw+cQ==",
+  "dgSpecHash": "VPwfHJN+tfTeuAYQZuSzHNlWAnWVJadfRSzo6hQtht1kZXR966S1BWa4C72wQaXAMCtoZUyc3ZG36ttfqonxCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Stefan\\Desktop\\MyMovies-master\\MyMovies-master\\DemoMovies.Data\\DemoMovies.Data.csproj",
+  "projectFilePath": "C:\\Users\\Stefan\\Desktop\\Academy\\MVC\\MyMovies-master\\DemoMovies.Data\\DemoMovies.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.entityframeworkcore\\2.2.6\\microsoft.entityframeworkcore.2.2.6.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\2.2.6\\microsoft.entityframeworkcore.abstractions.2.2.6.nupkg.sha512",
