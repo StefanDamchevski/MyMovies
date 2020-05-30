@@ -35,5 +35,15 @@ namespace DemoMovies.Service
             MovieRepository.Update(movie);
             return movie;
         }
+
+        public void Delete(int id)
+        {
+            MovieRepository.Delete(id);
+        }
+
+        public void UpdateMovie(Movie movie)
+        {
+            MovieRepository.Update(movie);
+        }
     }
 }

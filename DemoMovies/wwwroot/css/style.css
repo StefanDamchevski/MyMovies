@@ -26,7 +26,7 @@ body {
 }
 
     .sidenav a {
-        padding: 10px 10px 10px 22px;
+        text-align: center;
         text-decoration: none;
         outline: none;
         border: none;
@@ -51,7 +51,8 @@ body {
         }
 
         .sidenav a:hover::after {
-            width: 63%;
+            margin: 0 auto;
+            width: 60%;
             transition: 3s;
         }
 
@@ -61,8 +62,8 @@ body {
 
     .sidenav .closebtn {
         position: absolute;
-        top: -2%;
-        right: 0;
+        top: -3%;
+        right: 3%;
         font-size: 36px;
     }
 
@@ -226,15 +227,14 @@ body {
     }
 
 .search-bar {
-    position: absolute;
-    right: -8%;
-    top: -12%;
+  display: inline-flex;
+  justify-content: flex-end;
 }
 
-.btn {
+/*.btn {
     position: absolute;
     right: -37%;
     bottom: 28%;
     background-color:inherit;
     border: none;
-}
+}*/

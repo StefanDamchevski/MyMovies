@@ -10,5 +10,7 @@ namespace DemoMovies.Service.Interfaces
         void Add(Movie movie);
         List<Movie> GetByTitle(string title);
         Movie GetMovieDetails(int id);
+        void Delete(int id);
+        void UpdateMovie(Movie movie);
     }
 }

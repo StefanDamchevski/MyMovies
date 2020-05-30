@@ -32,11 +32,40 @@ namespace DemoMovies.Controllers
             if (ModelState.IsValid)
             {
                 MovieService.Add(movie);
-                return RedirectToAction("Overview");
+                return RedirectToAction("ModifyOverview");
             }
             else
             {
                 return View(movie);
+            }
+        }
+        public IActionResult ModifyOverview()
+        {
+            var movies = MovieService.GetAll();
+            return View(movies);
+        }
+        public IActionResult Delete(int id)
+        {
+            MovieService.Delete(id);
+            return RedirectToAction("ModifyOverview");
+        }
+
+        public IActionResult Modify(int id)
+        {
+            var movie = MovieService.GetById(id);
+            return View(movie);
+        }
+        [HttpPost]
+        public IActionResult Modify(Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                MovieService.UpdateMovie(movie);
+                return RedirectToAction("ModifyOverview");
+            }
+            else
+            {
+                return View();
             }
         }
     }

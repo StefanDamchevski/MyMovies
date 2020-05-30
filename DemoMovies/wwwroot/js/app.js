@@ -1,5 +1,5 @@
 ﻿function openNav() {
-    document.getElementById("mySidenav").style.width = "10%";
+    document.getElementById("mySidenav").style.width = "11%";
     document.getElementById("barContainer").style.display = "none";
 }
 
