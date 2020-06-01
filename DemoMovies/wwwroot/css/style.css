@@ -226,19 +226,6 @@ body {
         transition: 2s;
     }
 
-.search-bar {
-  display: inline-flex;
-  justify-content: flex-end;
-}
-
-/*.btn {
-    position: absolute;
-    right: -37%;
-    bottom: 28%;
-    background-color:inherit;
-    border: none;
-}*/
-
 .add-button {
     display: flex;
     justify-content: center;

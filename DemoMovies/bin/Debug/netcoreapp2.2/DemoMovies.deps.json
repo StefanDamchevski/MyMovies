@@ -682,7 +682,8 @@
       },
       "DemoMovies.Service/1.0.0": {
         "dependencies": {
-          "DemoMovies.Repository": "1.0.0"
+          "DemoMovies.Repository": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0"
         },
         "runtime": {
           "DemoMovies.Service.dll": {}

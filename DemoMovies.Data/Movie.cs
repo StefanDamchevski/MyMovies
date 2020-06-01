@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoMovies.Data
 {
-    public class Movie
+    public partial class Movie
     {
         public int Id { get; set; }
         [Required]

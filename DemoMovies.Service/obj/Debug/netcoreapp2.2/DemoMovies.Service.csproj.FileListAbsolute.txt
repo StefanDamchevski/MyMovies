@@ -48,9 +48,9 @@ D:\Academy\MVC\MyMovies-master\DemoMovies.Service\bin\Debug\netcoreapp2.2\DemoMo
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\bin\Debug\netcoreapp2.2\DemoMovies.Repository.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\bin\Debug\netcoreapp2.2\DemoMovies.Data.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.csprojAssemblyReference.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.csproj.CoreCompileInputs.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.AssemblyInfoInputs.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.AssemblyInfo.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.csproj.CopyComplete
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.dll
 D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.pdb
+D:\Academy\MVC\MyMovies-master\DemoMovies.Service\obj\Debug\netcoreapp2.2\DemoMovies.Service.csproj.CoreCompileInputs.cache

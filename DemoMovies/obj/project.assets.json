@@ -4755,7 +4755,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "DemoMovies.Repository": "1.0.0"
+          "DemoMovies.Repository": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Cookies": "2.2.0"
         },
         "compile": {
           "bin/placeholder/DemoMovies.Service.dll": {}

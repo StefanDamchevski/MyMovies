@@ -3,6 +3,7 @@ using DemoMovies.Repository;
 using DemoMovies.Repository.Interfaces;
 using DemoMovies.Service;
 using DemoMovies.Service.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,17 @@ namespace DemoMovies
             services.AddDbContext<DemoMoviesContext>(options => options.UseSqlServer("Data Source=.\\SQLEXPRESS; Initial Catalog = DemoMovies; Integrated Security = true"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(options => {
+                options.LoginPath = "/auth/signin";
+            });
+
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddTransient<IMovieService, MovieService>();
         }
@@ -55,6 +67,7 @@ namespace DemoMovies
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
