@@ -238,3 +238,20 @@ body {
     background-color:inherit;
     border: none;
 }*/
+
+.add-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    font-family: 'Roboto';
+}
+
+.list-of-movies {
+    margin-top: 4%;
+    text-align: center;
+}
+
+.table {
+    color: rgb(89, 94, 107);
+    font-family: 'Roboto';
+}

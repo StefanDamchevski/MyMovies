@@ -1,6 +1,8 @@
 ﻿using DemoMovies.Data;
+using DemoMovies.Helpers;
 using DemoMovies.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace DemoMovies.Controllers
 {
@@ -14,7 +16,12 @@ namespace DemoMovies.Controllers
         public IActionResult Overview(string title)
         {
             var movies = MovieService.GetByTitle(title);
-            return View(movies);
+
+            var overViewModels = movies
+                .Select(x => OverviewModelConverter.OveviewModelConvert(x))
+                .ToList();
+
+            return View(overViewModels);
         }
         public IActionResult Details(int id)
         {

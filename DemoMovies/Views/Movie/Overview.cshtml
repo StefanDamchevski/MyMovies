@@ -1,4 +1,4 @@
-﻿@model List<DemoMovies.Data.Movie>;
+﻿@model List<DemoMovies.ViewModels.OverviewViewModel>;
 
 @addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -30,10 +30,12 @@
     {
         <div class="col-md-3">
             <div class="card">
-                <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id"><img src="@movie.ImageUrl" class="card-img-top" height="300" width="120"></a>
+                <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
+                <img src="@movie.ImageUrl" class="card-img-top" height="300" width="120"></a>
                 <div class="card-body">
                     <h5 class="card-title">@movie.Title (@movie.YearReleased)</h5>
                     <p class="card-text">@movie.Genre</p>
+                    <p class="card-text">Created @movie.DaysCreated days ago</p>
                     <p class="card-text">@movie.Views Views</p>
                 </div>
             </div>
