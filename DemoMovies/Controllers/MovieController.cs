@@ -1,6 +1,7 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.Helpers;
 using DemoMovies.Service.Interfaces;
+using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -18,7 +19,7 @@ namespace DemoMovies.Controllers
             var movies = MovieService.GetByTitle(title);
 
             var overViewModels = movies
-                .Select(x => OverviewModelConverter.OveviewModelConvert(x))
+                .Select(x => ModelConverter.OveviewModelConvert(x))
                 .ToList();
 
             return View(overViewModels);
@@ -26,30 +27,39 @@ namespace DemoMovies.Controllers
         public IActionResult Details(int id)
         {
             var currentMovie = MovieService.GetMovieDetails(id);
-            return View(currentMovie);
+
+            var model = ModelConverter.DetailsModelConvert(currentMovie);
+
+            return View(model);
         }
         public IActionResult Create()
         {
-            var movie = new Movie();
+            var movie = new MovieCreateModel();
             return View(movie);
         }
         [HttpPost]
-        public IActionResult Create(Movie movie)
+        public IActionResult Create(MovieCreateModel movieCreate)
         {
             if (ModelState.IsValid)
             {
+                var movie = ModelConverter.CreateModelToMovieConvert(movieCreate);
                 MovieService.Add(movie);
                 return RedirectToAction("ModifyOverview");
             }
             else
             {
-                return View(movie);
+                return View(movieCreate);
             }
         }
         public IActionResult ModifyOverview()
         {
             var movies = MovieService.GetAll();
-            return View(movies);
+
+            var model = movies
+                .Select(x => ModelConverter.ConvertToModifyOverviewModel(x))
+                .ToList();
+
+            return View(model);
         }
         public IActionResult Delete(int id)
         {
@@ -60,19 +70,21 @@ namespace DemoMovies.Controllers
         public IActionResult Modify(int id)
         {
             var movie = MovieService.GetById(id);
-            return View(movie);
+            var model = ModelConverter.ConvertToMovieModifyModel(movie);
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Modify(Movie movie)
+        public IActionResult Modify(MovieModifyModel model)
         {
             if (ModelState.IsValid)
             {
+                var movie = ModelConverter.ConvertFromMovieModifyModel(model);
                 MovieService.UpdateMovie(movie);
                 return RedirectToAction("ModifyOverview");
             }
             else
             {
-                return View();
+                return View(model);
             }
         }
     }
