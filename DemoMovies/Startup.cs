@@ -44,7 +44,7 @@ namespace DemoMovies
                 options.LoginPath = "/auth/signin";
             });
 
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddTransient<IMovieService, MovieService>();

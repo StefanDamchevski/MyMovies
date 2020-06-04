@@ -1,12 +1,13 @@
-﻿using DemoMovies.Data;
-using DemoMovies.Helpers;
+﻿using DemoMovies.Helpers;
 using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace DemoMovies.Controllers
 {
+    [Authorize]
     public class MovieController : Controller
     {
         public IMovieService MovieService { get; set;}
@@ -14,6 +15,7 @@ namespace DemoMovies.Controllers
         {
             MovieService = movieService;
         }
+        [AllowAnonymous]
         public IActionResult Overview(string title)
         {
             var movies = MovieService.GetByTitle(title);
@@ -24,6 +26,7 @@ namespace DemoMovies.Controllers
 
             return View(overViewModels);
         }
+        [AllowAnonymous]
         public IActionResult Details(int id)
         {
             var currentMovie = MovieService.GetMovieDetails(id);

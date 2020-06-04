@@ -1,9 +1,6 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.Repository.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DemoMovies.Repository
 {
@@ -18,6 +15,12 @@ namespace DemoMovies.Repository
         public User GetByUsername(string username)
         {
             return Context.Users.FirstOrDefault(x => x.UserName == username);
+        }
+
+        public void Add(User newUser)
+        {
+            Context.Users.Add(newUser);
+            Context.SaveChanges();
         }
     }
 }

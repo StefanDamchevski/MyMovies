@@ -1,16 +1,19 @@
-﻿using DemoMovies.Service.Interfaces;
+﻿using DemoMovies.Service;
+using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DemoMovies.Controllers
 {
     public class AuthController : Controller
     {
-        public IUserService UserService { get; set; }
-        public AuthController(IUserService userService)
+        public IAuthService AuthService { get; set; }
+        public AuthController(IAuthService userService)
         {
-            UserService = userService;
+            AuthService = userService;
         }
         public IActionResult SignIn()
         {
@@ -18,24 +21,62 @@ namespace DemoMovies.Controllers
             return View(signIn);
         }
         [HttpPost]
-        public async Task<IActionResult> SignIn(SignInModel signIn)
+        public async Task<IActionResult> SignIn(SignInModel signIn, string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
-                var isSignedIn = await UserService.SignInAsync(signIn.UserName, signIn.Password, HttpContext);
-                if (isSignedIn)
+                var response = await AuthService.SignInAsync(signIn.UserName, signIn.Password, HttpContext);
+                if (response.IsSuccessful)
                 {
-                    return RedirectToAction("Overview", "Movie");
+                    if (!String.IsNullOrEmpty(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Overview", "Movie");
+                    }   
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Username or password is incorrect");
+                    ModelState.AddModelError(string.Empty, response.Message);
                     return View(signIn);
                 }
             }
             else
             {
                 return View(signIn);
+            }
+        }
+        public async Task<IActionResult> SignOut()
+        {
+            await AuthService.SignOutAsync(HttpContext);
+            return RedirectToAction("Overview", "Movie");
+        }
+        public IActionResult SignUp()
+        {
+            var model = new SignUpModel();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult SignUp(SignUpModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = AuthService.SignUp(model.Username, model.Password);
+                if (response.IsSuccessful)
+                {
+                    return RedirectToAction("SignIn");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, response.Message);
+                    return View(model);
+                }
+            }
+            else
+            {
+                return View(model);
             }
         }
     }

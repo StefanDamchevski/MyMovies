@@ -21,11 +21,12 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <a href="/" class="nav-tabs">@User.Identity.Name</a>
-                <a href="/" class="nav-tabs">Sign Out</a>
+                <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
             }
             else
             {
                 <a asp-controller="Auth" asp-action="SignIn" class="nav-tabs">Sign In</a>
+                <a asp-controller="Auth" asp-action="SignUp" class="nav-tabs">Sign Up</a>
             }
         </div>
         <div class="header" id="header">
