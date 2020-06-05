@@ -17,9 +17,9 @@
             <a asp-controller="Movie" asp-action="Overview" class="nav-tabs">Home</a>
             <a asp-controller="Info" asp-action="AboutUs" class="nav-tabs">About</a>
             <a asp-controller="Info" asp-action="ContactUs" class="nav-tabs">Contact</a>
-            <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
             @if (User.Identity.IsAuthenticated)
             {
+                <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
                 <a href="/" class="nav-tabs">@User.Identity.Name</a>
                 <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
             }
