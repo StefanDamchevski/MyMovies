@@ -45,16 +45,8 @@ namespace DemoMovies.Controllers
             if (ModelState.IsValid)
             {
                 var updatedUser = ModelConverter.ConvertFromUserModifyCurrnetUserModel(currentUserModel);
-                var response =  UserService.UpdateUser(updatedUser);
-                if (response.IsSuccessful)
-                {
-                    return RedirectToAction("ModifyUsers");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, response.Message);
-                    return View(currentUserModel);
-                }
+                UserService.UpdateUser(updatedUser);
+                return RedirectToAction("ModifyUsers");
             }
             else
             {

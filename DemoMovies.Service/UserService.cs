@@ -32,24 +32,9 @@ namespace DemoMovies.Service
             return UserRepository.GetById(id);
         }
 
-        public SignUpInResponse UpdateUser(User updatedUser)
+        public void UpdateUser(User updatedUser)
         {
-            var user = UserRepository.GetByUsername(updatedUser.UserName);
-            var response = new SignUpInResponse();
-
-            if(user == null)
-            {
-                UserRepository.Update(updatedUser);
-
-                response.IsSuccessful = true;
-                return response;
-            }
-            else
-            {
-                response.IsSuccessful = false;
-                response.Message = $"Username {updatedUser.UserName} already exists";
-                return response;
-            }
+            UserRepository.Update(updatedUser);
         }
     }
 }

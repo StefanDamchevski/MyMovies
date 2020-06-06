@@ -9,6 +9,6 @@ namespace DemoMovies.Service.Interfaces
         List<User> GetAll();
         void Delete(int id);
         User GetById(int id);
-        SignUpInResponse UpdateUser(User user);
+        void UpdateUser(User user);
     }
 }
