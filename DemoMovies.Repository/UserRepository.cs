@@ -1,5 +1,7 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DemoMovies.Repository
@@ -20,6 +22,32 @@ namespace DemoMovies.Repository
         public void Add(User newUser)
         {
             Context.Users.Add(newUser);
+            Context.SaveChanges();
+        }
+
+        public List<User> GetAll()
+        {
+            return Context.Users.ToList();
+        }
+
+        public void Delete(int id)
+        {
+            var user = new User
+            {
+                Id = id,
+            };
+            Context.Users.Remove(user);
+            Context.SaveChanges();
+        }
+
+        public User GetById(int id)
+        {
+            return Context.Users.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Update(User user)
+        {
+            Context.Users.Update(user);
             Context.SaveChanges();
         }
     }

@@ -21,6 +21,7 @@
             {
                 <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
                 <a href="/" class="nav-tabs">@User.Identity.Name</a>
+                <a asp-controller="User" asp-action="ModifyUsers" class="nav-tabs">Modify Users</a>
                 <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
             }
             else

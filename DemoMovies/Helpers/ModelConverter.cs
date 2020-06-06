@@ -84,5 +84,32 @@ namespace DemoMovies.Helpers
                 DateCreated = movieModify.DateCreated,
             };
         }
+        public static ModifyUsersModel ConvertToModifyUserModel(User user)
+        {
+            return new ModifyUsersModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+            };
+        }
+        public static ModifyCurrentUserModel ConvertToModifyCurrentUserModel(User user)
+        {
+            return new ModifyCurrentUserModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                Password = user.Password,
+                RepeatPassword = user.Password,
+            };
+        }
+        public static User ConvertFromUserModifyCurrnetUserModel(ModifyCurrentUserModel currentUserModel)
+        {
+            return new User
+            {
+                Id= currentUserModel.Id,
+                UserName = currentUserModel.Username,
+                Password = currentUserModel.Password,
+            };
+        }
     }
 }

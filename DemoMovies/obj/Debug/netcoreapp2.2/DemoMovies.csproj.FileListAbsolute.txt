@@ -141,6 +141,7 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.Tag
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.TagHelpers.output.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorCoreGenerate.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignIn.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignUp.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Info\AboutUs.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Info\ContactUs.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Movie\Create.cshtml.g.cs
@@ -150,6 +151,8 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Mo
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Movie\Overview.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\Modify.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\ModifyUsers.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorTargetAssemblyInfo.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorTargetAssemblyInfo.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.Views.pdb
@@ -157,4 +160,3 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.csp
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.dll
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.genruntimeconfig.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Auth\SignUp.cshtml.g.cs
