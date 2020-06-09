@@ -115,6 +115,12 @@ C:\Users\Stefan\Desktop\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcore
 C:\Users\Stefan\Desktop\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.genruntimeconfig.cache
 C:\Users\Stefan\Desktop\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Movie\Modify.cshtml.g.cs
 C:\Users\Stefan\Desktop\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.csprojAssemblyReference.cache
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.csproj.CoreCompileInputs.cache
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorAssemblyInfo.cache
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorAssemblyInfo.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.AssemblyInfoInputs.cache
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.AssemblyInfo.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\appsettings.Development.json
 D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\appsettings.json
 D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
@@ -131,12 +137,6 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\DemoMovies.Ser
 D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\DemoMovies.Service.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\DemoMovies.Data.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\DemoMovies.Repository.pdb
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.csprojAssemblyReference.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.csproj.CoreCompileInputs.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorAssemblyInfo.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorAssemblyInfo.cs
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.AssemblyInfoInputs.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.AssemblyInfo.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.TagHelpers.input.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.TagHelpers.output.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.RazorCoreGenerate.cache

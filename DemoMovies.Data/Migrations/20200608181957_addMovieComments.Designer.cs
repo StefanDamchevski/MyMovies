@@ -4,14 +4,16 @@ using DemoMovies.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DemoMovies.Data.Migrations
 {
     [DbContext(typeof(DemoMoviesContext))]
-    partial class DemoMoviesContextModelSnapshot : ModelSnapshot
+    [Migration("20200608181957_addMovieComments")]
+    partial class addMovieComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,7 +75,7 @@ namespace DemoMovies.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("MovieComments");
+                    b.ToTable("MovieComment");
                 });
 
             modelBuilder.Entity("DemoMovies.Data.User", b =>

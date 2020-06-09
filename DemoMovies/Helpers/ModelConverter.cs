@@ -1,6 +1,8 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DemoMovies.Helpers
 {
@@ -32,6 +34,18 @@ namespace DemoMovies.Helpers
                 Description = movie.Description,
                 Views = movie.Views,
                 DateCreated = movie.DateCreated,
+                MovieComments = movie.MovieComment
+                                    .Select(x => ConvertToMovieCommentsModel(x))
+                                    .ToList(),
+            };
+        }
+        public static MovieCommentsModel ConvertToMovieCommentsModel(MovieComment movieComment)
+        {
+            return new MovieCommentsModel
+            {
+                Comment = movieComment.Comment,
+                DateCreated = movieComment.DateCreated,
+                Username = movieComment.User.UserName,
             };
         }
         public static Movie CreateModelToMovieConvert(MovieCreateModel movieCreateModel)

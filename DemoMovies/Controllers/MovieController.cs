@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DemoMovies.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "IsAdmin")]
     public class MovieController : Controller
     {
         public IMovieService MovieService { get; set;}

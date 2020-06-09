@@ -2,11 +2,8 @@
 using DemoMovies.Repository.Interfaces;
 using DemoMovies.Service.Dto;
 using DemoMovies.Service.Interfaces;
-using Microsoft.EntityFrameworkCore.Internal;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 
 namespace DemoMovies.Service
 {
@@ -32,9 +29,31 @@ namespace DemoMovies.Service
             return UserRepository.GetById(id);
         }
 
-        public void UpdateUser(User updatedUser)
+        public SignUpInResponse UpdateUser(User updatedUser)
         {
-            UserRepository.Update(updatedUser);
+            var users = UserRepository.GetAll()
+                .Where(x => x.Id != updatedUser.Id && x.UserName == updatedUser.UserName)
+                .ToList();
+
+            var dbUser = UserRepository.GetById(updatedUser.Id);
+
+            var response = new SignUpInResponse();
+
+            if (!users.Any())
+            {
+                dbUser.UserName = updatedUser.UserName;
+                dbUser.Password = BCrypt.Net.BCrypt.HashPassword(updatedUser.Password);
+
+                UserRepository.Update(dbUser);
+                response.IsSuccessful = true;
+                return response;
+            }
+            else
+            {
+                response.IsSuccessful = false;
+                response.Message = $"Username {updatedUser.UserName} already exists";
+                return response;
+            }
         }
     }
 }

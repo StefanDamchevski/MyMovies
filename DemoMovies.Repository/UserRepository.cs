@@ -1,6 +1,5 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 

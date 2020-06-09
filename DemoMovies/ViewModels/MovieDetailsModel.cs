@@ -1,7 +1,6 @@
-﻿using System;
+﻿using DemoMovies.Data;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DemoMovies.ViewModels
 {
@@ -16,5 +15,6 @@ namespace DemoMovies.ViewModels
         public int YearReleased { get; set; }
         public int Views { get; set; }
         public DateTime DateCreated { get; set; }
+        public List<MovieCommentsModel> MovieComments { get; set; }
     }
 }

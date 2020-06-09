@@ -1,5 +1,6 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,10 @@ namespace DemoMovies.Repository
         }
         public Movie GetById(int id)
         {
-            return Context.Movies.FirstOrDefault(x => x.Id == id);   
+            return Context.Movies
+                .Include(x => x.MovieComment)
+                    .ThenInclude(x => x.User)
+                .FirstOrDefault(x => x.Id == id); 
         }
         public List<Movie> GetByTitle(string title)
         {

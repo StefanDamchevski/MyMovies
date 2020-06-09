@@ -19,9 +19,12 @@
             <a asp-controller="Info" asp-action="ContactUs" class="nav-tabs">Contact</a>
             @if (User.Identity.IsAuthenticated)
             {
-                <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
+                if (Convert.ToBoolean(User.FindFirst("IsAdmin").Value))
+                {
+                    <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
+                    <a asp-controller="User" asp-action="ModifyUsers" class="nav-tabs">Modify Users</a>
+                }
                 <a href="/" class="nav-tabs">@User.Identity.Name</a>
-                <a asp-controller="User" asp-action="ModifyUsers" class="nav-tabs">Modify Users</a>
                 <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
             }
             else
@@ -36,13 +39,13 @@
                 <div class="bars"></div>
                 <div class="bars"></div>
             </div>
-            <div id="logo-container">
-                <a asp-controller="Movie" asp-action="Overview" id="logo">My Movies</a>
+                <div id="logo-container">
+                    <a asp-controller="Movie" asp-action="Overview" id="logo">My Movies</a>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            @RenderBody()
-        </div>
+            <div class="container">
+                @RenderBody()
+            </div>
         <script src="~/js/app.js"></script>
     </body>
 </html>

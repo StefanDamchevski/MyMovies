@@ -1,12 +1,10 @@
-﻿using DemoMovies.Data;
-using DemoMovies.Helpers;
+﻿using DemoMovies.Helpers;
 using DemoMovies.Service.Dto;
 using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace DemoMovies.Controllers
 {
@@ -45,8 +43,16 @@ namespace DemoMovies.Controllers
             if (ModelState.IsValid)
             {
                 var updatedUser = ModelConverter.ConvertFromUserModifyCurrnetUserModel(currentUserModel);
-                UserService.UpdateUser(updatedUser);
-                return RedirectToAction("ModifyUsers");
+                SignUpInResponse response = UserService.UpdateUser(updatedUser);
+                if (response.IsSuccessful)
+                {
+                    return RedirectToAction("ModifyUsers");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, response.Message);
+                    return View(currentUserModel);
+                }
             }
             else
             {

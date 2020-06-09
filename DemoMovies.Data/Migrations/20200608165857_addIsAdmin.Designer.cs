@@ -4,14 +4,16 @@ using DemoMovies.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DemoMovies.Data.Migrations
 {
     [DbContext(typeof(DemoMoviesContext))]
-    partial class DemoMoviesContextModelSnapshot : ModelSnapshot
+    [Migration("20200608165857_addIsAdmin")]
+    partial class addIsAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,30 +54,6 @@ namespace DemoMovies.Data.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("DemoMovies.Data.MovieComment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Comment")
-                        .IsRequired();
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<int>("MovieId");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("MovieComments");
-                });
-
             modelBuilder.Entity("DemoMovies.Data.User", b =>
                 {
                     b.Property<int>("Id")
@@ -93,19 +71,6 @@ namespace DemoMovies.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("DemoMovies.Data.MovieComment", b =>
-                {
-                    b.HasOne("DemoMovies.Data.Movie", "Movie")
-                        .WithMany("MovieComment")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("DemoMovies.Data.User", "User")
-                        .WithMany("UserComment")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

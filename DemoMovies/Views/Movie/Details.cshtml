@@ -19,3 +19,8 @@
         <div class="movie-date-created">Date Created: @Model.DateCreated</div>
         <div class="movie-views">@Model.Views Views</div>
     </div>
+    <h1>Comments</h1>
+@foreach (var comment in @Model.MovieComments)
+{
+    <p>@comment.Comment - @comment.DateCreated - @comment.Username</p>
+}

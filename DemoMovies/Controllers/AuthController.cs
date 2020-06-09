@@ -1,9 +1,7 @@
-﻿using DemoMovies.Service;
-using DemoMovies.Service.Interfaces;
+﻿using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DemoMovies.Controllers

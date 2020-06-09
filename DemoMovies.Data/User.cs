@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace DemoMovies.Data
 {
@@ -9,5 +10,8 @@ namespace DemoMovies.Data
         public string Password { get; set; }
         [Required]
         public string UserName { get; set; }
+        [Required]
+        public bool IsAdmin { get; set; }
+        public List<MovieComment> UserComment { get; set; }
     }
 }
