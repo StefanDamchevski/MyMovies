@@ -18,20 +18,28 @@ namespace DemoMovies.Controllers
         [AllowAnonymous]
         public IActionResult Overview(string title)
         {
+            var movieOverviewData = new MovieOverviewDataModel();
+
             var movies = MovieService.GetByTitle(title);
+            var sideBarData = MovieService.GetSideBarData();
 
             var overViewModels = movies
                 .Select(x => ModelConverter.OveviewModelConvert(x))
                 .ToList();
 
-            return View(overViewModels);
+            movieOverviewData.MovieOverview = overViewModels;
+            movieOverviewData.SideBarData = sideBarData;
+
+            return View(movieOverviewData);
         }
         [AllowAnonymous]
         public IActionResult Details(int id)
         {
             var currentMovie = MovieService.GetMovieDetails(id);
+            var sideBarData = MovieService.GetSideBarData();
 
             var model = ModelConverter.DetailsModelConvert(currentMovie);
+            model.SideBarData = sideBarData;
 
             return View(model);
         }

@@ -1,7 +1,9 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.Repository.Interfaces;
+using DemoMovies.Service.Dto;
 using DemoMovies.Service.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DemoMovies.Service
 {
@@ -44,6 +46,54 @@ namespace DemoMovies.Service
         public void UpdateMovie(Movie movie)
         {
             MovieRepository.Update(movie);
+        }
+        public SideBarData GetSideBarData()
+        {
+            var movies = MovieRepository.GetAll();
+
+            List<SidebarMovie> topViews = GetTopFViews(movies);
+
+            List<SidebarMovie> recentlyCreated = GetRecentlyCreated(movies);
+
+            SideBarData sidebarData = AddToSideBarData(topViews, recentlyCreated);
+
+            return sidebarData;
+        }
+
+        private static SideBarData AddToSideBarData(List<SidebarMovie> topViews, List<SidebarMovie> recentlyCreated)
+        {
+            var sidebarData = new SideBarData();
+            sidebarData.RecentlyCreated = recentlyCreated;
+            sidebarData.TopViews = topViews;
+            return sidebarData;
+        }
+
+        private static List<SidebarMovie> GetRecentlyCreated(List<Movie> movies)
+        {
+            return movies.OrderByDescending(x => x.DateCreated)
+                .Take(5)
+                .Select(x => new SidebarMovie()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    DateCreated = x.DateCreated,
+                    Views = x.Views
+                })
+                .ToList();
+        }
+
+        private static List<SidebarMovie> GetTopFViews(List<Movie> movies)
+        {
+            return movies.OrderByDescending(x => x.Views)
+                .Take(5)
+                .Select(x => new SidebarMovie()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    DateCreated = x.DateCreated,
+                    Views = x.Views
+                })
+                .ToList();
         }
     }
 }

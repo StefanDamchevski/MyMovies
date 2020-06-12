@@ -1,26 +1,53 @@
 ﻿@model DemoMovies.ViewModels.MovieDetailsModel;
 
-@{ 
+@addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
     Layout = "_Layout";
     ViewBag.PageName = "Movie Details";
 }
+    <div class="row">
+        <div class="col-md-9">
+            <div class="movie-about">
+                <div class="movie-img-poz">
+                    <img class="movie-img" src="@Model.ImageUrl" />
+                </div>
+                <div class="movie-details">
+                    <div class="movie-title">@Model.Title (@Model.YearReleased)</div>
+                    <div class="movie-desc">
+                        <p style="text-align:center">Description:</p>
+                        <p>@Model.Description</p>
+                        <div class="more-movie-info">
+                            <div class="movie-genre">Genre: @Model.Genre</div>
+                            <div class="movie-cast">
+                                Cast:
+                                <span>@Model.Cast</span>
+                            </div>
+                            <div class="movie-date-created">Date Created: @Model.DateCreated.ToString("yyyy/MM/dd")</div>
+                            <div class="movie-views">@Model.Views Views</div>
+                        </div>
+                    </div>
 
-    <div class="movie-details">
-        <img class="movie-img" src="@Model.ImageUrl" />
-        <div class="movie-title">@Model.Title (@Model.YearReleased)</div>
-        <div class="movie-desc">
-            <p>@Model.Description</p>
+                </div>
+            </div>
+            <h1>Comments</h1>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form asp-controller="MovieComment" asp-action="Add" method="post">
+                    <input id="movieId" name="movieId" value="@Model.Id" hidden />
+                    <div class="form-group">
+                        <textarea id="comment" name="comment" class="form-control"> </textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                </form>
+            }
+
+            @foreach (var comment in @Model.MovieComments)
+            {
+                <p>@comment.Comment - @comment.DateCreated - @comment.Username</p>
+            }
         </div>
-        <div class="movie-genre">Genre: @Model.Genre</div>
-        <div class="movie-cast">
-            Cast:
-                <span>@Model.Cast</span>
+        <div class="col-md-3">
+            <partial name="SidebarPartial" for="SideBarData" />
         </div>
-        <div class="movie-date-created">Date Created: @Model.DateCreated</div>
-        <div class="movie-views">@Model.Views Views</div>
     </div>
-    <h1>Comments</h1>
-@foreach (var comment in @Model.MovieComments)
-{
-    <p>@comment.Comment - @comment.DateCreated - @comment.Username</p>
-}

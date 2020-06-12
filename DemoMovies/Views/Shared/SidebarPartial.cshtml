@@ -1,0 +1,28 @@
+﻿@model DemoMovies.Service.Dto.SideBarData;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+    <div style="width:100%; background-color:#343a40; color:white; padding:20px">
+        <h2>Top Movies</h2>
+        @foreach (var movie in Model.TopViews)
+        {
+            <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id" style="color:white; text-decoration:none">
+                <div style="padding:5px; background-color:#a8a8a8;  margin:5px">
+                    <p>Title: @movie.Title  </p>
+                    <p>Date created: @movie.DateCreated.ToString("yyyy-MM-dd")</p>
+                    <p>Views: @movie.Views</p>
+                </div>
+            </a>
+        }
+        <h2>Recent Movies</h2>
+        @foreach (var movie in Model.RecentlyCreated)
+        {
+            <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id" style="color:white; text-decoration:none">
+                <div style="padding:5px; background-color:#a8a8a8;  margin:5px">
+                    <p>Title: @movie.Title  </p>
+                    <p>Date created: @movie.DateCreated.ToString("yyyy-MM-dd")</p>
+                    <p>Views: @movie.Views</p>
+                </div>
+            </a>
+        }
+    </div>

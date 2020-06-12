@@ -1,7 +1,6 @@
 ﻿using DemoMovies.Data;
 using DemoMovies.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DemoMovies.Helpers

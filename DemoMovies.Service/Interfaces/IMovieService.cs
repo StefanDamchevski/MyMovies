@@ -1,4 +1,5 @@
 ﻿using DemoMovies.Data;
+using DemoMovies.Service.Dto;
 using System.Collections.Generic;
 
 namespace DemoMovies.Service.Interfaces
@@ -12,5 +13,6 @@ namespace DemoMovies.Service.Interfaces
         Movie GetMovieDetails(int id);
         void Delete(int id);
         void UpdateMovie(Movie movie);
+        SideBarData GetSideBarData();
     }
 }

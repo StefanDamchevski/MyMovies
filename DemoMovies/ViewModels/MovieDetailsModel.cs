@@ -1,4 +1,5 @@
 ﻿using DemoMovies.Data;
+using DemoMovies.Service.Dto;
 using System;
 using System.Collections.Generic;
 
@@ -16,5 +17,6 @@ namespace DemoMovies.ViewModels
         public int Views { get; set; }
         public DateTime DateCreated { get; set; }
         public List<MovieCommentsModel> MovieComments { get; set; }
+        public SideBarData SideBarData { get; set; }
     }
 }

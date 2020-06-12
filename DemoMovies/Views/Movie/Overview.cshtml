@@ -1,4 +1,4 @@
-﻿@model List<DemoMovies.ViewModels.OverviewViewModel>;
+﻿@model DemoMovies.ViewModels.MovieOverviewDataModel;
 
 @addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -11,34 +11,43 @@
         <form asp-controller="Movie" asp-action="Overview" class="form-inline">
             <div class="form-group">
                 <input name="Title" value="" id="title" class="form-control" placeholder="Search" />
-                <div class="form-group">
+                <div class="form-group" id="searchButton">
                     <input type="submit" value="Search" class="btn btn-primary" />
                 </div>
             </div>
         </form>
     </div>
 
-@if(@Model.Count == 0)
+@if(@Model.MovieOverview.Count == 0)
 {
     <div class="not-found">
         <p>No results found</p>
     </div>
 }
-
 <div class="row">
-    @foreach (var movie in @Model)
-    {
-        <div class="col-md-3">
-            <div class="card">
-                <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
-                <img src="@movie.ImageUrl" class="card-img-top" height="300" width="120"></a>
-                <div class="card-body">
-                    <h5 class="card-title">@movie.Title (@movie.YearReleased)</h5>
-                    <p class="card-text">@movie.Genre</p>
-                    <p class="card-text">Created @movie.DaysCreated days ago</p>
-                    <p class="card-text">@movie.Views Views</p>
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (var movie in @Model.MovieOverview)
+            {
+                <div class="col-lg-3">
+                    <div class="card">
+                        <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
+                            <img src="@movie.ImageUrl" class="card-img-top" height="300" width="120">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@movie.Title (@movie.YearReleased)</h5>
+                            <div class="card-text">
+                                <p>@movie.Genre</p>
+                                <p>Created @movie.DaysCreated days ago</p>
+                                <p>@movie.Views Views</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            }
         </div>
-    }
+    </div>
+    <div class="col-md-3">
+        <partial name="SidebarPartial" for="SideBarData" />
+    </div>
 </div>

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DemoMovies.Data
 {
@@ -14,11 +12,11 @@ namespace DemoMovies.Data
 
         [Required]
         public int MovieId { get; set; }
-        public Movie Movie { get; set; }
+        public virtual Movie Movie { get; set; }
 
         [Required]
         public int UserId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
     }
 }
