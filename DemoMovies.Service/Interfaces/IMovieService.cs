@@ -14,5 +14,6 @@ namespace DemoMovies.Service.Interfaces
         void Delete(int id);
         void UpdateMovie(Movie movie);
         SideBarData GetSideBarData();
+        void Approve(int id);
     }
 }

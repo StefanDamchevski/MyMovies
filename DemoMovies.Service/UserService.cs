@@ -31,19 +31,17 @@ namespace DemoMovies.Service
 
         public SignUpInResponse UpdateUser(User updatedUser)
         {
-            var users = UserRepository.GetAll()
+            List<User> users = UserRepository.GetAll()
                 .Where(x => x.Id != updatedUser.Id && x.UserName == updatedUser.UserName)
                 .ToList();
 
-            var dbUser = UserRepository.GetById(updatedUser.Id);
+            User dbUser = UserRepository.GetById(updatedUser.Id);
 
-            var response = new SignUpInResponse();
+            SignUpInResponse response = new SignUpInResponse();
 
             if (!users.Any())
             {
                 dbUser.UserName = updatedUser.UserName;
-                dbUser.Password = BCrypt.Net.BCrypt.HashPassword(updatedUser.Password);
-
                 UserRepository.Update(dbUser);
                 response.IsSuccessful = true;
                 return response;
@@ -54,6 +52,27 @@ namespace DemoMovies.Service
                 response.Message = $"Username {updatedUser.UserName} already exists";
                 return response;
             }
+        }
+
+        public void GiveAdminRole(int id)
+        {
+            User user = UserRepository.GetById(id);
+            user.IsAdmin = true;
+            UserRepository.Update(user);
+        }
+
+        public void RemoveAdminRole(int id)
+        {
+            User user = UserRepository.GetById(id);
+            user.IsAdmin = false;
+            UserRepository.Update(user);
+        }
+
+        public void ChangePassword(User user)
+        {
+            User dbUser = UserRepository.GetById(user.Id);
+            dbUser.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+            UserRepository.Update(dbUser);
         }
     }
 }

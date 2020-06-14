@@ -161,3 +161,5 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.dll
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\DemoMovies.genruntimeconfig.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Shared\SidebarPartial.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\MovieComment\ModifyComments.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\ChangePassword.cshtml.g.cs

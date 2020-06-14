@@ -29,21 +29,24 @@
         <div class="row">
             @foreach (var movie in @Model.MovieOverview)
             {
-                <div class="col-lg-3">
-                    <div class="card">
-                        <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
-                            <img src="@movie.ImageUrl" class="card-img-top" height="300" width="120">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title">@movie.Title (@movie.YearReleased)</h5>
-                            <div class="card-text">
-                                <p>@movie.Genre</p>
-                                <p>Created @movie.DaysCreated days ago</p>
-                                <p>@movie.Views Views</p>
+                if (movie.IsApproved)
+                {
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <a asp-controller="Movie" asp-action="Details" asp-route-id="@movie.Id">
+                                <img src="@movie.ImageUrl" class="card-img-top" height="300" width="120">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">@movie.Title (@movie.YearReleased)</h5>
+                                <div class="card-text">
+                                    <p>@movie.Genre</p>
+                                    <p>Created @movie.DaysCreated days ago</p>
+                                    <p>@movie.Views Views</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             }
         </div>
     </div>

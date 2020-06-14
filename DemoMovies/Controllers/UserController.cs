@@ -1,9 +1,11 @@
-﻿using DemoMovies.Helpers;
+﻿using DemoMovies.Data;
+using DemoMovies.Helpers;
 using DemoMovies.Service.Dto;
 using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DemoMovies.Controllers
@@ -18,9 +20,9 @@ namespace DemoMovies.Controllers
         }
         public IActionResult ModifyUsers()
         {
-            var users = UserService.GetAll();
+            List<User> users = UserService.GetAll();
 
-            var model = users
+            List<ModifyUsersModel> model = users
                 .Select(x => ModelConverter.ConvertToModifyUserModel(x))
                 .ToList();
 
@@ -33,8 +35,8 @@ namespace DemoMovies.Controllers
         }
         public IActionResult Modify(int id)
         {
-            var user = UserService.GetById(id);
-            var model = ModelConverter.ConvertToModifyCurrentUserModel(user);
+            User user = UserService.GetById(id);
+            ModifyCurrentUserModel model = ModelConverter.ConvertToModifyCurrentUserModel(user);
             return View(model);
         }
         [HttpPost]
@@ -42,7 +44,7 @@ namespace DemoMovies.Controllers
         {
             if (ModelState.IsValid)
             {
-                var updatedUser = ModelConverter.ConvertFromUserModifyCurrnetUserModel(currentUserModel);
+                User updatedUser = ModelConverter.ConvertFromUserModifyCurrnetUserModel(currentUserModel);
                 SignUpInResponse response = UserService.UpdateUser(updatedUser);
                 if (response.IsSuccessful)
                 {
@@ -57,6 +59,36 @@ namespace DemoMovies.Controllers
             else
             {
                 return View(currentUserModel);
+            }
+        }
+        public IActionResult GiveAdminRole(int id)
+        {
+            UserService.GiveAdminRole(id);
+            return RedirectToAction("ModifyUsers");
+        }
+        public IActionResult RemoveAdminRole(int id)
+        {
+            UserService.RemoveAdminRole(id);
+            return RedirectToAction("ModifyUsers");
+        }
+        public IActionResult ChangePassword(int id)
+        {
+            User user = UserService.GetById(id);
+            ChangePassword model = ModelConverter.ConvertToChangePasswordModel(user);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ChangePassword(ChangePassword model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = ModelConverter.ConvertFromChangePasswordModel(model);
+                UserService.ChangePassword(user);
+                return RedirectToAction("ModifyUsers");
+            }
+            else
+            {
+                return View(model);
             }
         }
     }

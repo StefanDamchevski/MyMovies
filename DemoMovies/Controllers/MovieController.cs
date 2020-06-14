@@ -32,6 +32,11 @@ namespace DemoMovies.Controllers
 
             return View(movieOverviewData);
         }
+        public IActionResult Approve(int id)
+        {
+            MovieService.Approve(id);
+            return RedirectToAction("ModifyOverview");
+        }
         [AllowAnonymous]
         public IActionResult Details(int id)
         {
@@ -43,11 +48,13 @@ namespace DemoMovies.Controllers
 
             return View(model);
         }
+        [AllowAnonymous]
         public IActionResult Create()
         {
             var movie = new MovieCreateModel();
             return View(movie);
         }
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Create(MovieCreateModel movieCreate)
         {
@@ -55,7 +62,7 @@ namespace DemoMovies.Controllers
             {
                 var movie = ModelConverter.CreateModelToMovieConvert(movieCreate);
                 MovieService.Add(movie);
-                return RedirectToAction("ModifyOverview");
+                return RedirectToAction("Overview");
             }
             else
             {

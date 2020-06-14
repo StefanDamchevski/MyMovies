@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DemoMovies.Service.Dto
 {
@@ -10,5 +8,6 @@ namespace DemoMovies.Service.Dto
         public string Title { get; set; }
         public DateTime DateCreated { get; set; }
         public int Views { get; set; }
+        public bool IsApproved { get; set; }
     }
 }

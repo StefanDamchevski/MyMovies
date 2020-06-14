@@ -10,5 +10,8 @@ namespace DemoMovies.Service.Interfaces
         void Delete(int id);
         User GetById(int id);
         SignUpInResponse UpdateUser(User user);
+        void GiveAdminRole(int id);
+        void RemoveAdminRole(int id);
+        void ChangePassword(User user);
     }
 }

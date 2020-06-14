@@ -40,6 +40,8 @@ namespace DemoMovies.Data.Migrations
                     b.Property<string>("ImageUrl")
                         .IsRequired();
 
+                    b.Property<bool>("IsApproved");
+
                     b.Property<string>("Title")
                         .IsRequired();
 
@@ -62,6 +64,8 @@ namespace DemoMovies.Data.Migrations
                         .IsRequired();
 
                     b.Property<DateTime>("DateCreated");
+
+                    b.Property<bool>("IsAproved");
 
                     b.Property<int>("MovieId");
 

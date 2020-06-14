@@ -9,6 +9,7 @@ namespace DemoMovies.Data
         [Required]
         public string Comment { get; set; }
         public DateTime DateCreated { get; set; }
+        public bool IsAproved { get; set; }
 
         [Required]
         public int MovieId { get; set; }

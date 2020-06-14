@@ -1,0 +1,43 @@
+﻿@model List<DemoMovies.ViewModels.ModifyCommentModel>;
+
+@addTagHelper * , Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+    ViewBag.PageName = "Modify Comments";
+}
+
+<div class="list-of-users">
+    <h1 class="modify-user-movie">Modify Comments</h1>
+    <table class="table">
+        <thead class="table-header">
+            <tr>
+                <th>User</th>
+                <th>Action</th>
+                <th>Approve</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in @Model)
+            {
+                <tr>
+                    <td>@comment.Username</td>
+                    <td>
+                        <a asp-controller="MovieComment" asp-action="Modify" asp-route-id="@comment.Id">Modify</a> |
+                        <a asp-controller="MovieComment" asp-action="Delete" asp-route-id="@comment.Id" onclick="return confirm('Are you sure you want to delete this user')">Delete</a>
+                    </td>
+                    <td>
+                        @if (!comment.IsApproved)
+                        {
+                            <a asp-controller="MovieComment" asp-action="Approve" asp-route-id="@comment.Id">Approve</a>
+                        }
+                        else
+                        {
+                            <span>Approved</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

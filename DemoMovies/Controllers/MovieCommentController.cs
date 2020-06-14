@@ -1,7 +1,9 @@
-﻿using DemoMovies.Service.Interfaces;
+﻿using DemoMovies.Helpers;
+using DemoMovies.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 
 namespace DemoMovies.Controllers
 {
@@ -26,6 +28,20 @@ namespace DemoMovies.Controllers
                 return RedirectToAction("Details", "Movie", new { id = movieId });
             }
          
+        }
+        public IActionResult ModifyComments()
+        {
+            var comments = MovieCommentService.GetAll();
+            var model = comments
+                .Select(x => ModelConverter.ConvertToModifyCommentsModel(x))
+                .ToList();
+
+            return View(model);
+        }
+        public IActionResult Approve(int id)
+        {
+            MovieCommentService.Approve(id);
+            return RedirectToAction("ModifyComments");
         }
     }
 }

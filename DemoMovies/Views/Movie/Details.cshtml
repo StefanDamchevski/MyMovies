@@ -30,10 +30,10 @@
 
                 </div>
             </div>
-            <h1>Comments</h1>
+            <h1 style="color:white">Comments</h1>
             @if (User.Identity.IsAuthenticated)
             {
-                <form asp-controller="MovieComment" asp-action="Add" method="post">
+                <form asp-controller="MovieComment" asp-action="Add" method="post" onsubmit="return ValidateCommentField()">
                     <input id="movieId" name="movieId" value="@Model.Id" hidden />
                     <div class="form-group">
                         <textarea id="comment" name="comment" class="form-control"> </textarea>
@@ -44,10 +44,16 @@
 
             @foreach (var comment in @Model.MovieComments)
             {
-                <p>@comment.Comment - @comment.DateCreated - @comment.Username</p>
+                if (comment.IsApproved)
+                {
+                    <p style="color:white">@comment.Comment - @comment.DateCreated - @comment.Username</p>
+                }
             }
         </div>
         <div class="col-md-3">
             <partial name="SidebarPartial" for="SideBarData" />
         </div>
     </div>
+@section Scripts {
+    <script src="~/js/comments.js"></script>
+}

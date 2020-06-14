@@ -23,9 +23,11 @@
                 {
                     <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
                     <a asp-controller="User" asp-action="ModifyUsers" class="nav-tabs">Modify Users</a>
+                    <a asp-controller="MovieComment" asp-action="ModifyComments" class="nav-tabs">ModifyComments</a>
                 }
-                <a href="/" class="nav-tabs">@User.Identity.Name</a>
+                <a asp-controller="User" asp-action="Modify" asp-route-id="@User.FindFirst("Id").Value" class="nav-tabs">@User.Identity.Name</a>
                 <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
+                <a asp-controller="Movie" asp-action="Create" class="nav-tabs">Create Movie</a>
             }
             else
             {
@@ -47,5 +49,6 @@
                 @RenderBody()
             </div>
         <script src="~/js/app.js"></script>
+        @RenderSection("Scripts", required: false)
     </body>
 </html>

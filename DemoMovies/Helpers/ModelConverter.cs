@@ -18,6 +18,7 @@ namespace DemoMovies.Helpers
                 Genre = movie.Genre,
                 Views = movie.Views,
                 DaysCreated = DateTime.Now.Subtract(movie.DateCreated).Days,
+                IsApproved = movie.IsApproved,
             };
         }
         public static MovieDetailsModel DetailsModelConvert(Movie movie)
@@ -45,6 +46,7 @@ namespace DemoMovies.Helpers
                 Comment = movieComment.Comment,
                 DateCreated = movieComment.DateCreated,
                 Username = movieComment.User.UserName,
+                IsApproved = movieComment.IsAproved,
             };
         }
         public static Movie CreateModelToMovieConvert(MovieCreateModel movieCreateModel)
@@ -65,6 +67,7 @@ namespace DemoMovies.Helpers
             {
                 Id = movie.Id,
                 Title = movie.Title,
+                IsApproved = movie.IsApproved,
             };
         }
         public static MovieModifyModel ConvertToMovieModifyModel(Movie movie)
@@ -103,6 +106,7 @@ namespace DemoMovies.Helpers
             {
                 Id = user.Id,
                 Username = user.UserName,
+                IsAdmin = user.IsAdmin,
             };
         }
         public static ModifyCurrentUserModel ConvertToModifyCurrentUserModel(User user)
@@ -111,8 +115,6 @@ namespace DemoMovies.Helpers
             {
                 Id = user.Id,
                 Username = user.UserName,
-                Password = user.Password,
-                RepeatPassword = user.Password,
             };
         }
         public static User ConvertFromUserModifyCurrnetUserModel(ModifyCurrentUserModel currentUserModel)
@@ -121,7 +123,36 @@ namespace DemoMovies.Helpers
             {
                 Id= currentUserModel.Id,
                 UserName = currentUserModel.Username,
-                Password = currentUserModel.Password,
+            };
+        }
+
+        public static ModifyCommentModel ConvertToModifyCommentsModel(MovieComment movieComment)
+        {
+            return new ModifyCommentModel
+            {
+                Id = movieComment.Id,
+                Comment = movieComment.Comment,
+                DateCreated = movieComment.DateCreated,
+                Username = movieComment.User.UserName,
+                IsApproved = movieComment.IsAproved,
+            };
+        }
+
+        public static ChangePassword ConvertToChangePasswordModel(User user)
+        {
+            return new ChangePassword
+            {
+                Id = user.Id,
+                Password = user.Password,
+                RepeatPassword = user.Password,
+            };
+        }
+        public static User ConvertFromChangePasswordModel(ChangePassword changePassword)
+        {
+            return new User
+            {
+                Id = changePassword.Id,
+                Password = changePassword.Password,
             };
         }
     }

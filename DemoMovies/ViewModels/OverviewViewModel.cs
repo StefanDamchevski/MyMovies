@@ -14,5 +14,6 @@ namespace DemoMovies.ViewModels
         public string Genre { get; set; }
         public int Views { get; set; }
         public int DaysCreated { get; set; }
+        public bool IsApproved { get; set; }
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DemoMovies.ViewModels
 {
@@ -10,5 +7,6 @@ namespace DemoMovies.ViewModels
         public string Comment { get; set; }
         public DateTime DateCreated { get; set; }
         public string Username { get; set; }
+        public bool IsApproved { get; set; }
     }
 }

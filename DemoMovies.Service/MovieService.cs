@@ -77,7 +77,8 @@ namespace DemoMovies.Service
                     Id = x.Id,
                     Title = x.Title,
                     DateCreated = x.DateCreated,
-                    Views = x.Views
+                    Views = x.Views,
+                    IsApproved = x.IsApproved,
                 })
                 .ToList();
         }
@@ -91,9 +92,17 @@ namespace DemoMovies.Service
                     Id = x.Id,
                     Title = x.Title,
                     DateCreated = x.DateCreated,
-                    Views = x.Views
+                    Views = x.Views,
+                    IsApproved = x.IsApproved,
                 })
                 .ToList();
+        }
+
+        public void Approve(int id)
+        {
+            var movie = MovieRepository.GetById(id);
+            movie.IsApproved = true;
+            MovieRepository.Update(movie);
         }
     }
 }
