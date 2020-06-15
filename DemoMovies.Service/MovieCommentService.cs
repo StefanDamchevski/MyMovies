@@ -38,5 +38,22 @@ namespace DemoMovies.Service
             comment.IsAproved = true;
             MovieCommentRepository.Update(comment);
         }
+
+        public void Delete(int id)
+        {
+            MovieCommentRepository.Delete(id);
+        }
+
+        public MovieComment GetById(int id)
+        {
+            return MovieCommentRepository.GetById(id);
+        }
+
+        public void Update(string comment, int id)
+        {
+            MovieComment movieComment = MovieCommentRepository.GetById(id);
+            movieComment.Comment = comment;
+            MovieCommentRepository.Update(movieComment);
+        }
     }
 }

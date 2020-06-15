@@ -8,5 +8,8 @@ namespace DemoMovies.Service.Interfaces
         void Add(string comment, int movieId, int userId);
         List<MovieComment> GetAll();
         void Approve(int id);
+        void Delete(int id);
+        MovieComment GetById(int id);
+        void Update(string comment, int id);
     }
 }

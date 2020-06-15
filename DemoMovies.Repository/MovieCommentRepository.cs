@@ -3,6 +3,7 @@ using DemoMovies.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DemoMovies.Repository
 {
@@ -29,12 +30,25 @@ namespace DemoMovies.Repository
 
         public MovieComment GetById(int id)
         {
-            return Context.MovieComments.FirstOrDefault(x => x.Id == id);
+            return Context.MovieComments
+                .Include(x => x.User)
+                .Include(x => x.Movie)
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(MovieComment comment)
         {
             Context.MovieComments.Update(comment);
+            Context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            MovieComment movieComment = new MovieComment
+            {
+                Id = id,
+            };
+            Context.MovieComments.Remove(movieComment);
             Context.SaveChanges();
         }
     }

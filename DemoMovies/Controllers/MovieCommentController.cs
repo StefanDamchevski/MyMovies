@@ -1,5 +1,7 @@
-﻿using DemoMovies.Helpers;
+﻿using DemoMovies.Data;
+using DemoMovies.Helpers;
 using DemoMovies.Service.Interfaces;
+using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -42,6 +44,30 @@ namespace DemoMovies.Controllers
         {
             MovieCommentService.Approve(id);
             return RedirectToAction("ModifyComments");
+        }
+        public IActionResult Delete(int id)
+        {
+            MovieCommentService.Delete(id);
+            return RedirectToAction("ModifyComments");
+        }
+        public IActionResult Modify(int id)
+        {
+            MovieComment movieComment = MovieCommentService.GetById(id);
+            ModifyCommentModel model = ModelConverter.ConvertToModifyCommentsModel(movieComment);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Modify(ModifyCommentModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                MovieCommentService.Update(model.Comment, model.Id);
+                return RedirectToAction("ModifyComments");
+            }
+            else
+            {
+                return View(model);
+            }
         }
     }
 }

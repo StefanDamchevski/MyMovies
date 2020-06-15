@@ -9,5 +9,6 @@ namespace DemoMovies.Repository.Interfaces
         List<MovieComment> GetAll();
         MovieComment GetById(int id);
         void Update(MovieComment comment);
+        void Delete(int id);
     }
 }
