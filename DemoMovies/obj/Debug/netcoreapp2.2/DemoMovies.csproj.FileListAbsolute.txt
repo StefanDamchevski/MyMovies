@@ -164,3 +164,4 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Sh
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\MovieComment\ModifyComments.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\ChangePassword.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\MovieComment\Modify.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\Details.cshtml.g.cs

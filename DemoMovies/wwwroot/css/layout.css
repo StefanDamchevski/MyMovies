@@ -1,0 +1,142 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: rgb(19,31,41); 
+    background: linear-gradient(90deg, rgba(19,31,41,1) 18%, rgba(53,70,79,1) 82%);
+}
+
+p { 
+    margin-top: 1%;
+    margin-bottom: 3px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(93deg, rgb(19, 31, 41) 9%, rgb(43, 59, 68) 91%);
+    overflow-x: hidden;
+    transition: 1s;
+    padding-top: 1%;
+}
+
+    .sidenav a {
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        border: none;
+        font-family: 'Rock Salt';
+        color: rgb(72, 71, 99);
+        display: block;
+        padding-top: 5%;
+        margin-top: 5%;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+            text-decoration: none;
+        }
+
+        .sidenav a:after {
+            content: '';
+            width: 0px;
+            height: 1px;
+            display: flex;
+            background: #f1f1f1;
+        }
+
+        .sidenav a:hover::after {
+            margin: 0 auto;
+            width: 60%;
+            transition: 3s;
+        }
+
+    .sidenav .closebtn::after {
+        height: 0px;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: -3%;
+        right: 3%;
+        font-size: 36px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.bar-container {
+    display: inline-block;
+    cursor: pointer;
+    margin: 1%;
+    margin-top: 3%;
+    position: absolute;
+    top: 0;
+}
+
+.bars {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(72, 71, 99);
+    margin: 6px 0;
+}
+
+#logo-container {
+    text-align: center;
+    padding: 2%;
+}
+
+#logo {
+    text-decoration: none;
+    font-size: 350%;
+    font-weight: 900;
+    color: #5c5c74;
+    font-family: 'Rock Salt';
+    margin: 0 auto;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    margin-top: 1%;
+}
+
+.col-md-3 {
+    margin-top: 1%;
+}
+
+.form-group {
+    margin-top: 2%;
+    padding: 2px;
+}
+
+textarea {
+    font-family: 'Roboto';
+}
+
+input {
+    font-family: 'Roboto';
+}

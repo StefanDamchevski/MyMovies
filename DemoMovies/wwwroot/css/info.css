@@ -1,0 +1,19 @@
+﻿.about-us-contact {
+    text-align: center;
+    color: #9595aa;
+    margin-top: 1%;
+}
+
+    .about-us-contact p {
+        color: #b8b8b8;
+        margin-top: 2%;
+        font-size: large;
+    }
+
+.contact-details {
+    text-align: right;
+    color: #b8b8b8;
+    font-size: large;
+    margin-right: 9%;
+    margin-top: 4%;
+}

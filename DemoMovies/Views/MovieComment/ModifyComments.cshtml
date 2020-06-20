@@ -7,8 +7,12 @@
     ViewBag.PageName = "Modify Comments";
 }
 
+@section Styles{
+    <link href="~/css/tables.css" rel="stylesheet"/>
+ }
+
 <div class="list-of-users">
-    <h1 class="modify-user-movie">Modify Comments</h1>
+    <h1 class="modify-title ">Modify Comments</h1>
     <table class="table">
         <thead class="table-header">
             <tr>
@@ -33,7 +37,7 @@
                         }
                         else
                         {
-                            <span>Approved</span>
+                            <span class="appr" >Approved</span>
                         }
                     </td>
                 </tr>

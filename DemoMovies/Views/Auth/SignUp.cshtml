@@ -6,6 +6,9 @@
     ViewBag.PageName = "Sign Up";
 }
 
+@section Styles{
+    <link href="~/css/form.css" rel="stylesheet" /> 
+}
     <div class="sign-up-in">
         <div class="form-wrap">
             <h2>Please enter your information</h2>
@@ -14,15 +17,15 @@
                     <form asp-controller="Auth" asp-action="SignUp" method="post">
                         <div asp-validation-summary="All" class="form-validation text-danger"></div>
                         <div class="form-group">
-                            <label asp-for="Username" class="control-label">Username</label>
+                            <label asp-for="Username" class="control-label">Username:</label>
                             <input asp-for="Username" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label asp-for="Password" class="control-label">Password</label>
+                            <label asp-for="Password" class="control-label">Password:</label>
                             <input asp-for="Password" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label asp-for="RepeatPassword" class="control-label">Repeat Password</label>
+                            <label asp-for="RepeatPassword" class="control-label">Repeat Password:</label>
                             <input asp-for="RepeatPassword" class="form-control" />
                         </div>
                         <div class="form-group">

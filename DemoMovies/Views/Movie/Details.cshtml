@@ -6,30 +6,38 @@
     Layout = "_Layout";
     ViewBag.PageName = "Movie Details";
 }
-    <div class="row">
-        <div class="col-md-9">
-            <div class="movie-about">
-                <div class="movie-img-poz">
-                    <img class="movie-img" src="@Model.ImageUrl" />
-                </div>
-                <div class="movie-details">
-                    <div class="movie-title">@Model.Title (@Model.YearReleased)</div>
-                    <div class="movie-desc">
-                        <p style="text-align:center">Description:</p>
-                        <p>@Model.Description</p>
-                        <div class="more-movie-info">
-                            <div class="movie-genre">Genre: @Model.Genre</div>
-                            <div class="movie-cast">
-                                Cast:
-                                <span>@Model.Cast</span>
-                            </div>
-                            <div class="movie-date-created">Date Created: @Model.DateCreated.ToString("yyyy/MM/dd")</div>
-                            <div class="movie-views">@Model.Views Views</div>
-                        </div>
-                    </div>
 
-                </div>
+@section Styles {
+    <link href="~/css/movieDetails.css" rel="stylesheet" />
+    <link href="~/css/sidebar.css" rel="stylesheet" />
+}
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="movie-about">
+            <div class="movie-img-poz">
+                <img class="movie-img" src="@Model.ImageUrl" />
             </div>
+            <div class="movie-details">
+                <div class="movie-title">@Model.Title</div>
+                <p class="year-released">(@Model.YearReleased)</p>
+                <div class="movie-desc">
+                    <p style="text-align:center">Description:</p>
+                    <p>@Model.Description</p>
+                    <div class="more-movie-info">
+                        <p class="movie-genre">Genre: @Model.Genre</p>
+                        <p class="movie-cast">
+                            Cast:
+                            <span>@Model.Cast</span>
+                        </p>
+                        <p class="movie-date-created">Date Created: @Model.DateCreated.ToString("yyyy/MM/dd")</p>
+                        <p class="movie-views">@Model.Views Views</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="add-comments">
             <h1 style="color:white">Comments</h1>
             @if (User.Identity.IsAuthenticated)
             {
@@ -38,22 +46,37 @@
                     <div class="form-group">
                         <textarea id="comment" name="comment" class="form-control"> </textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Comment</button>
+                    <div class="comment-btn">
+                        <button type="submit" class="btn btn-primary">Comment</button>
+                    </div>
                 </form>
             }
 
-            @foreach (var comment in @Model.MovieComments)
-            {
-                if (comment.IsApproved)
+            <div class="comment-box">
+                @foreach (var comment in @Model.MovieComments)
                 {
-                    <p style="color:white">@comment.Comment - @comment.DateCreated - @comment.Username</p>
+                    if (comment.IsApproved)
+                    {
+                        <div class="comment-box">
+                            <div class="comment-body">
+                                <span class="tip tip-down"></span>
+                                <div class="message">
+                                    <p>@comment.Comment</p>
+                                </div>
+                            </div>
+                            <div class="user-comment">
+                                <p>@comment.Username - @comment.DaysAgo days ago</p>
+                            </div>
+                        </div>
+                    }
                 }
-            }
-        </div>
-        <div class="col-md-3">
-            <partial name="SidebarPartial" for="SideBarData" />
+            </div>
         </div>
     </div>
+    <div class="col-md-3">
+        <partial name="SidebarPartial" for="SideBarData" />
+    </div>
+</div>
 @section Scripts {
     <script src="~/js/comments.js"></script>
 }

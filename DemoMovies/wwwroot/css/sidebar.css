@@ -1,0 +1,30 @@
+﻿.sidebar-wrap {
+    width: 100%;
+    background-color: rgba(92, 92, 116, 0.6);
+    padding: 20px;
+    border-radius: 2%;
+}
+
+    .sidebar-wrap h2 {
+        text-align: center;
+        font-family: 'Rock Salt';
+        font-size: x-large;
+        color: white;
+        padding: 3%;
+    }
+
+.top-recent {
+    color: #484763;
+}
+
+.sidebar-wrap a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.inside {
+    padding: 4%;
+    background-color: rgba(212, 222, 245, 0.7);
+    margin: 1%;
+    border-radius: 2%;
+}

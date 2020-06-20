@@ -1,0 +1,103 @@
+﻿
+.movie-about {
+    display: flex;
+    align-items: flex-start;
+}
+
+.movie-img-poz {
+    width: 30%;
+    margin-right: 7%;
+}
+
+.movie-img {
+    width: 100%;
+}
+
+.movie-details {
+    text-align: left;
+    width: 70%;
+}
+
+.movie-title {
+    text-align: center;
+    margin-top: 1%;
+    font-size: 230%;
+    font-weight: 900;
+    color: #4c5e8a;
+    font-family: 'Rock Salt';
+}
+
+.year-released {
+    text-align: center;
+    margin-top: 1%;
+    font-size: 170%;
+    font-weight: 900;
+    color: rgb(89, 94, 107);
+    font-family: 'Rock Salt';
+}
+
+.movie-desc {
+    margin-top: 4%;
+    color: #b0b0bd;
+}
+
+.more-movie-info {
+    text-align: center;
+    color: #8ca1d4;
+    margin-top: 1%;
+    font-size: medium;
+}
+
+.add-comments {
+    width: 100%;
+    color: #4c5e8a
+}
+
+.tip {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    background: transparent;
+    border: 10px solid whitesmoke;
+}
+
+.tip-down {
+    left: 10px;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.comment-box {
+    width: 90%;
+    margin-left: 6%;
+}
+
+    .comment-box .comment-body {
+        position: relative;
+        height: auto;
+        margin-top: 4%;
+        padding: 1%;
+        background-color: white;
+        border-radius: 2%;
+        border: 5px solid whitesmoke;
+    }
+
+    .comment-box .message {
+        border-radius: 2%;
+        font-family: 'Roboto';
+        font-size: medium;
+        line-height: 1;
+        color: black;
+    }
+
+.user-comment {
+    display: flex;
+    justify-content: space-between;
+    color: #e3d8f1;
+    margin-top: 1%;
+}
+
+.comment-btn {
+    margin-left: 3%;
+}

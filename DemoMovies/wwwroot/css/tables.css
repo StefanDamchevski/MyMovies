@@ -1,0 +1,42 @@
+﻿.add-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.list-of-movies {
+    margin-top: 3%;
+}
+
+.table-header {
+    font-size: 130%;
+    color: #7e7e92;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table { 
+    color: #9595aa;
+    margin-top: 4%;
+    text-align: center;
+    background-color: rgba(188, 189, 199,0.1);
+}
+
+table, td, th {
+    width: 30%;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(188, 189, 199,0.2);
+}
+
+.appr {
+    color: #e3d8f1;
+}
+
+.modify-title {
+    font-family: 'Rock Salt';
+    color: #9595aa;
+    font-size: xx-large;
+    text-align: center;
+}

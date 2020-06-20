@@ -44,7 +44,7 @@ namespace DemoMovies.Helpers
             return new MovieCommentsModel
             {
                 Comment = movieComment.Comment,
-                DateCreated = movieComment.DateCreated,
+                DaysAgo = DateTime.Now.Subtract(movieComment.DateCreated).Days,
                 Username = movieComment.User.UserName,
                 IsApproved = movieComment.IsAproved,
             };
@@ -153,6 +153,15 @@ namespace DemoMovies.Helpers
             {
                 Id = changePassword.Id,
                 Password = changePassword.Password,
+            };
+        }
+        public static UserDetailsModel ConvertToUserDetailsModel(User user)
+        {
+            return new UserDetailsModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                IsAdmin = user.IsAdmin,
             };
         }
     }

@@ -91,5 +91,12 @@ namespace DemoMovies.Controllers
                 return View(model);
             }
         }
+
+        public IActionResult Details(int id)
+        {
+            User user = UserService.GetById(id);
+            UserDetailsModel model = ModelConverter.ConvertToUserDetailsModel(user);
+            return View(model);
+        }
     }
 }

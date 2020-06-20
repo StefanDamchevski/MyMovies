@@ -2,15 +2,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-        <link href="~/css/style.css" rel="stylesheet" />
-        <title>
-            @ViewBag.PageName
-        </title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/layout.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+    <title>
+        @ViewBag.PageName
+    </title>
+</head>
     <body>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -21,13 +22,14 @@
             {
                 if (Convert.ToBoolean(User.FindFirst("IsAdmin").Value))
                 {
-                    <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
                     <a asp-controller="User" asp-action="ModifyUsers" class="nav-tabs">Modify Users</a>
+                    <a asp-controller="Movie" asp-action="ModifyOverview" class="nav-tabs">Modify Movie</a>
                     <a asp-controller="MovieComment" asp-action="ModifyComments" class="nav-tabs">ModifyComments</a>
                 }
-                <a asp-controller="User" asp-action="Modify" asp-route-id="@User.FindFirst("Id").Value" class="nav-tabs">@User.Identity.Name</a>
-                <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
+                <a asp-controller="User" asp-action="Details" asp-route-id="@User.FindFirst("Id").Value" class="nav-tabs">@User.Identity.Name</a>
+
                 <a asp-controller="Movie" asp-action="Create" class="nav-tabs">Create Movie</a>
+                <a asp-controller="Auth" asp-action="SignOut" class="nav-tabs">Sign Out</a>
             }
             else
             {

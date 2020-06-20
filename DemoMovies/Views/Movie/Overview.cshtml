@@ -7,18 +7,23 @@
     ViewBag.PageName = "Home";
 }
 
-    <div class="search-bar" id="searchBar">
-        <form asp-controller="Movie" asp-action="Overview" class="form-inline">
-            <div class="form-group">
-                <input name="Title" value="" id="title" class="form-control" placeholder="Search" />
-                <div class="form-group" id="searchButton">
-                    <input type="submit" value="Search" class="btn btn-primary" />
-                </div>
-            </div>
-        </form>
-    </div>
+@section Styles {
+    <link href="~/css/movieOverview.css" rel="stylesheet"/>
+    <link href="~/css/sidebar.css" rel="stylesheet" />
+}
 
-@if(@Model.MovieOverview.Count == 0)
+<div class="search-bar" id="searchBar">
+    <form asp-controller="Movie" asp-action="Overview" class="form-inline">
+        <div class="form-group">
+            <input name="Title" value="" id="title" class="form-control" placeholder="Search" />
+            <div class="form-group" id="searchButton">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@if (@Model.MovieOverview.Count == 0)
 {
     <div class="not-found">
         <p>No results found</p>
