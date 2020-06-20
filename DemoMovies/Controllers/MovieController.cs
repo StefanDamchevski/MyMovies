@@ -1,16 +1,18 @@
-﻿using DemoMovies.Helpers;
+﻿using DemoMovies.Data;
+using DemoMovies.Helpers;
 using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DemoMovies.Controllers
 {
-    [Authorize(Policy = "IsAdmin")]
+    [Authorize]
     public class MovieController : Controller
     {
-        public IMovieService MovieService { get; set;}
+        private IMovieService MovieService { get; set;}
         public MovieController(IMovieService movieService)
         {
             MovieService = movieService;
@@ -18,20 +20,17 @@ namespace DemoMovies.Controllers
         [AllowAnonymous]
         public IActionResult Overview(string title)
         {
-            var movieOverviewData = new MovieOverviewDataModel();
+            MovieOverviewDataModel model = new MovieOverviewDataModel();
 
-            var movies = MovieService.GetByTitle(title);
-            var sideBarData = MovieService.GetSideBarData();
-
-            var overViewModels = movies
+            model.MovieOverview = MovieService.GetByTitle(title)
                 .Select(x => ModelConverter.OveviewModelConvert(x))
                 .ToList();
 
-            movieOverviewData.MovieOverview = overViewModels;
-            movieOverviewData.SideBarData = sideBarData;
+            model.SideBarData = MovieService.GetSideBarData();
 
-            return View(movieOverviewData);
+            return View(model);
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult Approve(int id)
         {
             MovieService.Approve(id);
@@ -40,40 +39,36 @@ namespace DemoMovies.Controllers
         [AllowAnonymous]
         public IActionResult Details(int id)
         {
-            var currentMovie = MovieService.GetMovieDetails(id);
-            var sideBarData = MovieService.GetSideBarData();
+            Movie movie = MovieService.GetMovieDetails(id);
 
-            var model = ModelConverter.DetailsModelConvert(currentMovie);
-            model.SideBarData = sideBarData;
+            MovieDetailsModel model = ModelConverter.DetailsModelConvert(movie);
+            model.SideBarData = MovieService.GetSideBarData();
 
             return View(model);
         }
-        [AllowAnonymous]
         public IActionResult Create()
         {
-            var movie = new MovieCreateModel();
-            return View(movie);
+            MovieCreateModel model = new MovieCreateModel();
+            return View(model);
         }
-        [AllowAnonymous]
         [HttpPost]
-        public IActionResult Create(MovieCreateModel movieCreate)
+        public IActionResult Create(MovieCreateModel model)
         {
             if (ModelState.IsValid)
             {
-                var movie = ModelConverter.CreateModelToMovieConvert(movieCreate);
+                Movie movie = ModelConverter.CreateModelToMovieConvert(model);
                 MovieService.Add(movie);
                 return RedirectToAction("Overview");
             }
             else
             {
-                return View(movieCreate);
+                return View(model);
             }
         }
+        [Authorize(Policy ="IsAdmin")]
         public IActionResult ModifyOverview()
         {
-            var movies = MovieService.GetAll();
-
-            var model = movies
+            List<ModifyOverviewModel> model = MovieService.GetAll()
                 .Select(x => ModelConverter.ConvertToModifyOverviewModel(x))
                 .ToList();
 
@@ -84,19 +79,19 @@ namespace DemoMovies.Controllers
             MovieService.Delete(id);
             return RedirectToAction("ModifyOverview");
         }
-
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult Modify(int id)
         {
-            var movie = MovieService.GetById(id);
-            var model = ModelConverter.ConvertToMovieModifyModel(movie);
+            MovieModifyModel model = ModelConverter.ConvertToMovieModifyModel(MovieService.GetById(id));
             return View(model);
         }
+        [Authorize(Policy = "IsAdmin")]
         [HttpPost]
         public IActionResult Modify(MovieModifyModel model)
         {
             if (ModelState.IsValid)
             {
-                var movie = ModelConverter.ConvertFromMovieModifyModel(model);
+                Movie movie = ModelConverter.ConvertFromMovieModifyModel(model);
                 MovieService.UpdateMovie(movie);
                 return RedirectToAction("ModifyOverview");
             }

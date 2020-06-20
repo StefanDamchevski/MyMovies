@@ -1,5 +1,4 @@
 ﻿using DemoMovies.Data;
-using DemoMovies.Repository;
 using DemoMovies.Repository.Interfaces;
 using DemoMovies.Service.Interfaces;
 using System;
@@ -17,7 +16,7 @@ namespace DemoMovies.Service
         public void Add(string comment, int movieId, int userId)
         {
             
-            var movieComment = new MovieComment();
+            MovieComment movieComment = new MovieComment();
             movieComment.Comment = comment;
             movieComment.DateCreated = DateTime.Now;
             movieComment.MovieId = movieId;
@@ -34,7 +33,7 @@ namespace DemoMovies.Service
 
         public void Approve(int id)
         {
-            var comment = MovieCommentRepository.GetById(id);
+            MovieComment comment = MovieCommentRepository.GetById(id);
             comment.IsAproved = true;
             MovieCommentRepository.Update(comment);
         }

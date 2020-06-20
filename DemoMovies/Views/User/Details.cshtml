@@ -7,28 +7,29 @@
     Layout = "_Layout";
 }
 
-@section Styles{ 
+@section Styles{
     <link href="~/css/userDetails.css" rel="stylesheet" />
 }
 
-<h1>Details</h1>
-
-<div class="row">
-    <div class="col-md-7">
-        <div class="user-details">
-            <div class="id">
-                <span>Id: @Model.Id</span>
-            </div>
-            <div class="username">
-                <span>Username: @Model.Username</span>
-            </div>
-            <div class="is-admin">
-                Is Admin: @Html.DisplayFor(model => model.IsAdmin)
-            </div>
-            <div class="actions">
-                <a asp-controller="User" asp-action="Modify" asp-route-id="@Model.Id">Edit</a> |
-                <a asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id">Change Password</a> |
-                <a asp-controller="User" asp-action="Delete" asp-route-id="@Model.Id" onclick="return confirm('Are you sure you want to delete @Model.Username?')">Delete</a>
+<h1 class="modify-title">Details</h1>
+<div class="form-wrap">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="user-details">
+                <div class="id">
+                    <span>Id: @Model.Id</span>
+                </div>
+                <div class="username">
+                    <span>Username: @Model.Username</span>
+                </div>
+                <div class="is-admin">
+                    Is Admin: @Html.DisplayFor(model => model.IsAdmin)
+                </div>
+                <div class="actions">
+                    <a asp-controller="User" asp-action="Modify" asp-route-id="@Model.Id">Edit</a> |
+                    <a asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id">Change Password</a> |
+                    <a asp-controller="User" asp-action="Delete" asp-route-id="@Model.Id" onclick="return confirm('Are you sure you want to delete @Model.Username?')">Delete</a>
+                </div>
             </div>
         </div>
     </div>

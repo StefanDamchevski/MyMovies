@@ -31,7 +31,7 @@ namespace DemoMovies.Repository
 
         public void Delete(int id)
         {
-            var user = new User
+            User user = new User
             {
                 Id = id,
             };

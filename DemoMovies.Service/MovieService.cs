@@ -32,7 +32,7 @@ namespace DemoMovies.Service
         }
         public Movie GetMovieDetails(int id)
         {
-            var movie = MovieRepository.GetById(id);
+            Movie movie = MovieRepository.GetById(id);
             movie.Views += 1;
             MovieRepository.Update(movie);
             return movie;
@@ -49,7 +49,7 @@ namespace DemoMovies.Service
         }
         public SideBarData GetSideBarData()
         {
-            var movies = MovieRepository.GetAll();
+            List<Movie> movies = MovieRepository.GetAll();
 
             List<SidebarMovie> topViews = GetTopFViews(movies);
 
@@ -62,7 +62,7 @@ namespace DemoMovies.Service
 
         private static SideBarData AddToSideBarData(List<SidebarMovie> topViews, List<SidebarMovie> recentlyCreated)
         {
-            var sidebarData = new SideBarData();
+            SideBarData sidebarData = new SideBarData();
             sidebarData.RecentlyCreated = recentlyCreated;
             sidebarData.TopViews = topViews;
             return sidebarData;
@@ -100,7 +100,7 @@ namespace DemoMovies.Service
 
         public void Approve(int id)
         {
-            var movie = MovieRepository.GetById(id);
+            Movie movie = MovieRepository.GetById(id);
             movie.IsApproved = true;
             MovieRepository.Update(movie);
         }

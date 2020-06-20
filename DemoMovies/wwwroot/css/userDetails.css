@@ -1,1 +1,33 @@
-﻿
+﻿.modify-title {
+    font-family: 'Rock Salt';
+    color: #9595aa;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.form-wrap {
+    text-align: center;
+    background-color: rgba(167, 167, 167,0.1);
+    border-radius: 2%;
+    width: 100%;
+    padding: 1%;
+}
+
+.col-md-7 {
+    flex: auto;
+    max-width: 100%;
+    color: #b8b8b8;
+}
+
+.user-details {
+    font-size: larger;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.id {
+    display: flex;
+    flex-direction: column;
+}

@@ -6,8 +6,8 @@ namespace DemoMovies.Service.Interfaces
 {
     public interface IAuthService
     {
-        Task<SignUpInResponse> SignInAsync(string username, string password,HttpContext httpContext);
+        Task<Response> SignInAsync(string username, string password,HttpContext httpContext);
         Task SignOutAsync(HttpContext httpContext);
-        SignUpInResponse SignUp(string username, string password);
+        Response SignUp(string username, string password);
     }
 }

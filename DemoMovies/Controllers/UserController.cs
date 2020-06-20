@@ -1,10 +1,12 @@
-﻿using DemoMovies.Data;
+﻿using DemoMovies.Custom;
+using DemoMovies.Data;
 using DemoMovies.Helpers;
 using DemoMovies.Service.Dto;
 using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,11 +15,12 @@ namespace DemoMovies.Controllers
     [Authorize]
     public class UserController : Controller
     {
-        public IUserService UserService { get; set; }
+        private IUserService UserService { get; set; }
         public UserController(IUserService userService)
         {
             UserService = userService;
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult ModifyUsers()
         {
             List<User> users = UserService.GetAll();
@@ -30,73 +33,147 @@ namespace DemoMovies.Controllers
         }
         public IActionResult Delete(int id)
         {
-            UserService.Delete(id);
-            return RedirectToAction("ModifyUsers");
-        }
-        public IActionResult Modify(int id)
-        {
-            User user = UserService.GetById(id);
-            ModifyCurrentUserModel model = ModelConverter.ConvertToModifyCurrentUserModel(user);
-            return View(model);
-        }
-        [HttpPost]
-        public IActionResult Modify(ModifyCurrentUserModel currentUserModel)
-        {
-            if (ModelState.IsValid)
+            if (!AuthorizeService.AuthorizeUser(User,id))
             {
-                User updatedUser = ModelConverter.ConvertFromUserModifyCurrnetUserModel(currentUserModel);
-                SignUpInResponse response = UserService.UpdateUser(updatedUser);
-                if (response.IsSuccessful)
-                {
-                    return RedirectToAction("ModifyUsers");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, response.Message);
-                    return View(currentUserModel);
-                }
+                return RedirectToAction("AccessDenied", "Auth");
             }
             else
             {
-                return View(currentUserModel);
+                UserService.Delete(id);
             }
+            if (Convert.ToInt32(User.FindFirst("Id").Value) == id)
+            {
+                return RedirectToAction("SignOut", "Auth");
+            }
+            else
+            {
+                return RedirectToAction("Success");
+            }
+        }
+        public IActionResult Modify(int id)
+        {
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                User user = UserService.GetById(id);
+                ModifyCurrentUserModel model = ModelConverter.ConvertToModifyCurrentUserModel(user);
+                return View(model);
+            }
+        }
+        [HttpPost]
+        public IActionResult Modify(ModifyCurrentUserModel model)
+        {
+            if(!AuthorizeService.AuthorizeUser(User, model.Id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    User user = ModelConverter.ConvertFromUserModifyCurrnetUserModel(model);
+                    Response response = UserService.UpdateUser(user);
+                    if (response.IsSuccessful)
+                    {
+                        return RedirectToAction("Success");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, response.Message);
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    return View(model);
+                }
+            }
+
         }
         public IActionResult GiveAdminRole(int id)
         {
-            UserService.GiveAdminRole(id);
-            return RedirectToAction("ModifyUsers");
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                UserService.GiveAdminRole(id);
+                return RedirectToAction("ModifyUsersOverview");
+            }
         }
         public IActionResult RemoveAdminRole(int id)
         {
-            UserService.RemoveAdminRole(id);
-            return RedirectToAction("ModifyUsers");
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                UserService.RemoveAdminRole(id);
+            }
+            if (Convert.ToInt32(User.FindFirst("Id").Value) == id)
+            {
+                return RedirectToAction("SignOut", "Auth");
+            }
+            else
+            {
+                return RedirectToAction("ModifyUsersOverview");
+            }
         }
         public IActionResult ChangePassword(int id)
         {
-            User user = UserService.GetById(id);
-            ChangePassword model = ModelConverter.ConvertToChangePasswordModel(user);
-            return View();
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                ChangePassword model = new ChangePassword();
+                model.Id = id;
+                return View(model);
+            }
         }
         [HttpPost]
         public IActionResult ChangePassword(ChangePassword model)
         {
-            if (ModelState.IsValid)
+            if (!AuthorizeService.AuthorizeUser(User, model.Id))
             {
-                User user = ModelConverter.ConvertFromChangePasswordModel(model);
-                UserService.ChangePassword(user);
-                return RedirectToAction("ModifyUsers");
+                return RedirectToAction("AccessDenied", "Auth");
             }
             else
             {
-                return View(model);
+                if (ModelState.IsValid)
+                {
+                    UserService.ChangePassword(model.Id, model.Password);
+                    return RedirectToAction("Success");
+                }
+                else
+                {
+                    return View(model);
+                }
             }
         }
 
         public IActionResult Details(int id)
         {
-            User user = UserService.GetById(id);
-            UserDetailsModel model = ModelConverter.ConvertToUserDetailsModel(user);
-            return View(model);
+            if (!AuthorizeService.AuthorizeUser(User, id))
+            {
+                return RedirectToAction("AccessDenied", "Auth");
+            }
+            else
+            {
+                User user = UserService.GetById(id);
+                UserDetailsModel model = ModelConverter.ConvertToUserDetailsModel(user);
+                return View(model);
+            }
+        }
+        public IActionResult Success()
+        {
+            return View();
         }
     }
 }

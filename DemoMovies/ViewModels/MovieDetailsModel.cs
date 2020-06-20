@@ -1,5 +1,4 @@
-﻿using DemoMovies.Data;
-using DemoMovies.Service.Dto;
+﻿using DemoMovies.Service.Dto;
 using System;
 using System.Collections.Generic;
 

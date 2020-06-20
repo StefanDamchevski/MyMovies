@@ -1,4 +1,5 @@
-﻿using DemoMovies.Service.Interfaces;
+﻿using DemoMovies.Service.Dto;
+using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,22 +9,22 @@ namespace DemoMovies.Controllers
 {
     public class AuthController : Controller
     {
-        public IAuthService AuthService { get; set; }
+        private IAuthService AuthService { get; set; }
         public AuthController(IAuthService userService)
         {
             AuthService = userService;
         }
         public IActionResult SignIn()
         {
-            var signIn = new SignInModel();
-            return View(signIn);
+            SignInModel model = new SignInModel();
+            return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> SignIn(SignInModel signIn, string returnUrl = null)
+        public async Task<IActionResult> SignIn(SignInModel model, string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
-                var response = await AuthService.SignInAsync(signIn.UserName, signIn.Password, HttpContext);
+                Response response = await AuthService.SignInAsync(model.UserName, model.Password, HttpContext);
                 if (response.IsSuccessful)
                 {
                     if (!String.IsNullOrEmpty(returnUrl))
@@ -38,12 +39,12 @@ namespace DemoMovies.Controllers
                 else
                 {
                     ModelState.AddModelError(string.Empty, response.Message);
-                    return View(signIn);
+                    return View(model);
                 }
             }
             else
             {
-                return View(signIn);
+                return View(model);
             }
         }
         public async Task<IActionResult> SignOut()
@@ -53,7 +54,7 @@ namespace DemoMovies.Controllers
         }
         public IActionResult SignUp()
         {
-            var model = new SignUpModel();
+            SignUpModel model = new SignUpModel();
             return View(model);
         }
         [HttpPost]
@@ -61,7 +62,7 @@ namespace DemoMovies.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = AuthService.SignUp(model.Username, model.Password);
+                Response response = AuthService.SignUp(model.Username, model.Password);
                 if (response.IsSuccessful)
                 {
                     return RedirectToAction("SignIn");
@@ -76,6 +77,10 @@ namespace DemoMovies.Controllers
             {
                 return View(model);
             }
+        }
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

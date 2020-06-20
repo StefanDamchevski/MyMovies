@@ -33,7 +33,7 @@ namespace DemoMovies.Repository
         }
         public List<Movie> GetByTitle(string title)
         {
-            var movies = Context.Movies.AsQueryable();
+            IQueryable<Movie> movies = Context.Movies.AsQueryable();
             if (!String.IsNullOrEmpty(title))
             {
                 movies = movies.Where(x => x.Title.Contains(title));
@@ -48,7 +48,7 @@ namespace DemoMovies.Repository
 
         public void Delete(int id)
         {
-            var movie = new Movie
+            Movie movie = new Movie
             {
                 Id = id,
             };

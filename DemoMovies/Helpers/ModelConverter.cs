@@ -137,24 +137,6 @@ namespace DemoMovies.Helpers
                 IsApproved = movieComment.IsAproved,
             };
         }
-
-        public static ChangePassword ConvertToChangePasswordModel(User user)
-        {
-            return new ChangePassword
-            {
-                Id = user.Id,
-                Password = user.Password,
-                RepeatPassword = user.Password,
-            };
-        }
-        public static User ConvertFromChangePasswordModel(ChangePassword changePassword)
-        {
-            return new User
-            {
-                Id = changePassword.Id,
-                Password = changePassword.Password,
-            };
-        }
         public static UserDetailsModel ConvertToUserDetailsModel(User user)
         {
             return new UserDetailsModel

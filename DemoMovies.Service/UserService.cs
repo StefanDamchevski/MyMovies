@@ -9,7 +9,7 @@ namespace DemoMovies.Service
 {
     public class UserService : IUserService
     {
-        public IUserRepository UserRepository { get; set; }
+        private IUserRepository UserRepository { get; set; }
         public UserService(IUserRepository userRepository)
         {
             UserRepository = userRepository;
@@ -29,7 +29,7 @@ namespace DemoMovies.Service
             return UserRepository.GetById(id);
         }
 
-        public SignUpInResponse UpdateUser(User updatedUser)
+        public Response UpdateUser(User updatedUser)
         {
             List<User> users = UserRepository.GetAll()
                 .Where(x => x.Id != updatedUser.Id && x.UserName == updatedUser.UserName)
@@ -37,7 +37,7 @@ namespace DemoMovies.Service
 
             User dbUser = UserRepository.GetById(updatedUser.Id);
 
-            SignUpInResponse response = new SignUpInResponse();
+            Response response = new Response();
 
             if (!users.Any())
             {
@@ -68,11 +68,38 @@ namespace DemoMovies.Service
             UserRepository.Update(user);
         }
 
-        public void ChangePassword(User user)
+        public void ChangePassword(int id, string password)
         {
-            User dbUser = UserRepository.GetById(user.Id);
-            dbUser.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+            User dbUser = UserRepository.GetById(id);
+            dbUser.Password = BCrypt.Net.BCrypt.HashPassword(password);
             UserRepository.Update(dbUser);
+        }
+
+        public Response CreateNewUser(string username, string password)
+        {
+            User user = UserRepository.GetByUsername(username);
+            Response response = new Response();
+
+            if (user == null)
+            {
+                User newUser = new User()
+                {
+                    UserName = username,
+                    Password = BCrypt.Net.BCrypt.HashPassword(password),
+                    IsAdmin = false,
+                };
+
+                UserRepository.Add(newUser);
+
+                response.IsSuccessful = true;
+                return response;
+            }
+            else
+            {
+                response.IsSuccessful = false;
+                response.Message = $"Username {username} already exists";
+                return response;
+            }
         }
     }
 }

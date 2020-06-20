@@ -5,23 +5,24 @@ using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DemoMovies.Controllers
 {
+    [Authorize]
     public class MovieCommentController : Controller
     {
-        public IMovieCommentService MovieCommentService { get; set; }
+        private IMovieCommentService MovieCommentService { get; set; }
         public MovieCommentController(IMovieCommentService movieCommentService)
         {
             MovieCommentService = movieCommentService;
         }
-        [Authorize]
         public IActionResult Add(string comment, int movieId)
         {
             if (!String.IsNullOrEmpty(comment))
             {
-                var userId = Convert.ToInt32(User.FindFirst("Id").Value);
+                int userId = Convert.ToInt32(User.FindFirst("Id").Value);
                 MovieCommentService.Add(comment, movieId, userId);
                 return RedirectToAction("Details", "Movie", new { id = movieId });
             }
@@ -31,31 +32,36 @@ namespace DemoMovies.Controllers
             }
          
         }
+        [Authorize(Policy ="IsAdmin")]
         public IActionResult ModifyComments()
         {
-            var comments = MovieCommentService.GetAll();
-            var model = comments
+            List<MovieComment> comments = MovieCommentService.GetAll();
+            List<ModifyCommentModel> model = comments
                 .Select(x => ModelConverter.ConvertToModifyCommentsModel(x))
                 .ToList();
 
             return View(model);
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult Approve(int id)
         {
             MovieCommentService.Approve(id);
             return RedirectToAction("ModifyComments");
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult Delete(int id)
         {
             MovieCommentService.Delete(id);
             return RedirectToAction("ModifyComments");
         }
+        [Authorize(Policy = "IsAdmin")]
         public IActionResult Modify(int id)
         {
             MovieComment movieComment = MovieCommentService.GetById(id);
             ModifyCommentModel model = ModelConverter.ConvertToModifyCommentsModel(movieComment);
             return View(model);
         }
+        [Authorize(Policy = "IsAdmin")]
         [HttpPost]
         public IActionResult Modify(ModifyCommentModel model)
         {

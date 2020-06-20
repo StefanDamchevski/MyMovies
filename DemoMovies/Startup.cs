@@ -41,7 +41,8 @@ namespace DemoMovies
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
             .AddCookie(options => {
-                options.LoginPath = "/auth/signin";
+                options.LoginPath = "/Auth/SignIn";
+                options.AccessDeniedPath = "/Auth/AccessDenied";
             });
 
             services.AddAuthorization(

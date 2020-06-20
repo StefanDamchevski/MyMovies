@@ -3,13 +3,12 @@ using DemoMovies.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace DemoMovies.Repository
 {
     public class MovieCommentRepository : IMovieCommentRepository
     {
-        public DemoMoviesContext Context { get; set; }
+        private DemoMoviesContext Context { get; set; }
         public MovieCommentRepository(DemoMoviesContext context)
         {
             Context = context;
