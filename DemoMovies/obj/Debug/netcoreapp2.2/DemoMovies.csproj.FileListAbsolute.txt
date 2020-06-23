@@ -167,3 +167,4 @@ D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Mo
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\Details.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\Auth\AccessDenied.cshtml.g.cs
 D:\Academy\MVC\MyMovies-master\DemoMovies\obj\Debug\netcoreapp2.2\Razor\Views\User\Success.cshtml.g.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies\bin\Debug\netcoreapp2.2\libman.json

@@ -57,8 +57,7 @@ namespace DemoMovies.Controllers
         [Authorize(Policy = "IsAdmin")]
         public IActionResult Modify(int id)
         {
-            MovieComment movieComment = MovieCommentService.GetById(id);
-            ModifyCommentModel model = ModelConverter.ConvertToModifyCommentsModel(movieComment);
+            ModifyCommentModel model = ModelConverter.ConvertToModifyCommentsModel(MovieCommentService.GetById(id));
             return View(model);
         }
         [Authorize(Policy = "IsAdmin")]

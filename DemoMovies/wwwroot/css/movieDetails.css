@@ -101,3 +101,7 @@
 .comment-btn {
     margin-left: 3%;
 }
+
+.displayNone{
+    display: none;
+}

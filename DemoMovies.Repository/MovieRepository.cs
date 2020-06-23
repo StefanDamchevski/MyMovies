@@ -29,6 +29,7 @@ namespace DemoMovies.Repository
             return Context.Movies
                 .Include(x => x.MovieComment)
                     .ThenInclude(x => x.User)
+                .Include(x => x.MovieLikes)
                 .FirstOrDefault(x => x.Id == id); 
         }
         public List<Movie> GetByTitle(string title)

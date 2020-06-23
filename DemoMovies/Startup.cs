@@ -58,6 +58,8 @@ namespace DemoMovies
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IMovieCommentService, MovieCommentService>();
             services.AddTransient<IMovieCommentRepository, MovieCommentRepository>();
+            services.AddTransient<IMovieLikeService, MovieLikeService>();
+            services.AddTransient<IMovieLikeRepository, MovieLikeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -24,6 +24,7 @@ namespace DemoMovies.Data
         [Column(TypeName = "datetime")]
         public DateTime DateCreated { get; set; }
         public List<MovieComment> MovieComment { get; set; }
+        public List<MovieLike> MovieLikes { get; set; }
         public bool IsApproved { get; set; }
     }
 }

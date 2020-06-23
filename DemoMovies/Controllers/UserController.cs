@@ -58,8 +58,7 @@ namespace DemoMovies.Controllers
             }
             else
             {
-                User user = UserService.GetById(id);
-                ModifyCurrentUserModel model = ModelConverter.ConvertToModifyCurrentUserModel(user);
+                ModifyCurrentUserModel model = ModelConverter.ConvertToModifyCurrentUserModel(UserService.GetById(id));
                 return View(model);
             }
         }
@@ -102,7 +101,7 @@ namespace DemoMovies.Controllers
             else
             {
                 UserService.GiveAdminRole(id);
-                return RedirectToAction("ModifyUsersOverview");
+                return RedirectToAction("ModifyUsers");
             }
         }
         public IActionResult RemoveAdminRole(int id)
@@ -121,7 +120,7 @@ namespace DemoMovies.Controllers
             }
             else
             {
-                return RedirectToAction("ModifyUsersOverview");
+                return RedirectToAction("ModifyUsers");
             }
         }
         public IActionResult ChangePassword(int id)

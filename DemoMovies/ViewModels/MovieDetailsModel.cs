@@ -15,7 +15,9 @@ namespace DemoMovies.ViewModels
         public int YearReleased { get; set; }
         public int Views { get; set; }
         public DateTime DateCreated { get; set; }
-        public List<MovieCommentsModel> MovieComments { get; set; }
+        public List<MovieLikeModel> MovieLikes { get; set; }
+        public MovieLikeStatus MovieStatus { get; set; }
+        public List<MovieCommentsModel> MovieComments { get; set; } 
         public SideBarData SideBarData { get; set; }
     }
 }

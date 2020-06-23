@@ -4,8 +4,10 @@ using DemoMovies.Service.Interfaces;
 using DemoMovies.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DemoMovies.Controllers
 {
@@ -13,9 +15,12 @@ namespace DemoMovies.Controllers
     public class MovieController : Controller
     {
         private IMovieService MovieService { get; set;}
-        public MovieController(IMovieService movieService)
+        private IMovieLikeService MovieLikeService { get; set; }
+
+        public MovieController(IMovieService movieService, IMovieLikeService movieLikeService)
         {
             MovieService = movieService;
+            MovieLikeService = movieLikeService;
         }
         [AllowAnonymous]
         public IActionResult Overview(string title)
@@ -44,6 +49,21 @@ namespace DemoMovies.Controllers
             MovieDetailsModel model = ModelConverter.DetailsModelConvert(movie);
             model.SideBarData = MovieService.GetSideBarData();
 
+            if (User.Identity.IsAuthenticated)
+            {
+                MovieLikeModel movieLike = model.MovieLikes.FirstOrDefault(x => x.UserId == Convert.ToInt32(User.FindFirst("Id").Value));
+                if(movieLike != null)
+                {
+                    if (movieLike.Status)
+                    {
+                        model.MovieStatus = MovieLikeStatus.Liked;
+                    }
+                    else
+                    {
+                        model.MovieStatus = MovieLikeStatus.Disliked;
+                    }
+                }
+            }
             return View(model);
         }
         public IActionResult Create()

@@ -37,8 +37,21 @@ namespace DemoMovies.Helpers
                 MovieComments = movie.MovieComment
                                     .Select(x => ConvertToMovieCommentsModel(x))
                                     .ToList(),
+                MovieLikes = movie.MovieLikes.Select(x => ConvertToMovieLikeModel(x)).ToList(),
             };
         }
+
+        private static MovieLikeModel ConvertToMovieLikeModel(MovieLike x)
+        {
+            return new MovieLikeModel
+            {
+                Id = x.Id,
+                RecipeId = x.MovieId,
+                UserId = x.UserId,
+                Status = x.Status,
+            };
+        }
+
         public static MovieCommentsModel ConvertToMovieCommentsModel(MovieComment movieComment)
         {
             return new MovieCommentsModel

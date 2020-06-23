@@ -37,6 +37,41 @@
 
             </div>
         </div>
+
+        <div class="add-likes" style="margin-top:2%; margin-bottom:2%;">
+            <span class="movie-likes-count" style="color:white"><span id="movieLikesCount">@Model.MovieLikes.Where(x => x.Status == true).Count()</span> Likes</span>
+            <span class="movie-likes-count" style="color:white; margin-left: 1%"><span id="movieDislikesCount">@Model.MovieLikes.Where(x => x.Status == false).Count()</span> Dislikes</span>
+            <div class="buttons">
+                @if (User.Identity.IsAuthenticated)
+                 {
+                    if (Model.MovieStatus == DemoMovies.ViewModels.MovieLikeStatus.None)
+                    {
+                        <button id="btnAddLike" class="btn btn-outline-success" onclick="AddLike(@Model.Id)">Like</button>
+                        <button id="btnRemoveLike" class="btn btn-success displayNone" onclick="RemoveLike(@Model.Id)">Un Like</button>
+                        <button id="btnAddDislike" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
+                        <button id="btnRemoveDislike" class="btn btn-danger displayNone" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                    }
+
+                    if (Model.MovieStatus == DemoMovies.ViewModels.MovieLikeStatus.Liked)
+                    {
+                        <button id="btnAddLike" class="btn btn-outline-success displayNone" onclick="AddLike(@Model.Id)">Like</button>
+                        <button id="btnRemoveLike" class="btn btn-success" onclick="RemoveLike(@Model.Id)">Un Like</button>
+                        <button id="btnAddDislike" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
+                        <button class="btn btn-danger displayNone" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                    }
+
+                    if (Model.MovieStatus == DemoMovies.ViewModels.MovieLikeStatus.Disliked)
+                    {
+                        <button id="btnAddLike" class="btn btn-outline-success " onclick="AddLike(@Model.Id)">Like</button>
+                        <button id="btnRemoveLike" class="btn btn-success displayNone" onclick="RemoveLike(@Model.Id)">Un Like</button>
+                        <button id="btnAddDislike" class="btn btn-outline-danger displayNone" onclick="AddDislike(@Model.Id)">Dislike</button>
+                        <button id="btnRemoveDislike" class="btn btn-danger" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                    }
+                 }
+            </div>
+        </div>
+
+
         <div class="add-comments">
             <h1 style="color:white">Comments</h1>
             @if (User.Identity.IsAuthenticated)
@@ -78,5 +113,6 @@
     </div>
 </div>
 @section Scripts {
-    <script src="~/js/comments.js"></script>
+    <script src="~/lib/axios/axios.min.js"></script>
+    <script src="~/js/details.js"></script>
 }

@@ -80,6 +80,29 @@ namespace DemoMovies.Data.Migrations
                     b.ToTable("MovieComments");
                 });
 
+            modelBuilder.Entity("DemoMovies.Data.MovieLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated");
+
+                    b.Property<int>("MovieId");
+
+                    b.Property<bool>("Status");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MovieLikes");
+                });
+
             modelBuilder.Entity("DemoMovies.Data.User", b =>
                 {
                     b.Property<int>("Id")
@@ -108,6 +131,19 @@ namespace DemoMovies.Data.Migrations
 
                     b.HasOne("DemoMovies.Data.User", "User")
                         .WithMany("UserComment")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DemoMovies.Data.MovieLike", b =>
+                {
+                    b.HasOne("DemoMovies.Data.Movie", "Movie")
+                        .WithMany("MovieLikes")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DemoMovies.Data.User", "User")
+                        .WithMany("MovieLikes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
