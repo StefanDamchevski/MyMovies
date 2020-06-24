@@ -15,12 +15,11 @@ namespace DemoMovies.Controllers
     public class MovieController : Controller
     {
         private IMovieService MovieService { get; set;}
-        private IMovieLikeService MovieLikeService { get; set; }
 
-        public MovieController(IMovieService movieService, IMovieLikeService movieLikeService)
+        public MovieController(IMovieService movieService)
         {
             MovieService = movieService;
-            MovieLikeService = movieLikeService;
+
         }
         [AllowAnonymous]
         public IActionResult Overview(string title)

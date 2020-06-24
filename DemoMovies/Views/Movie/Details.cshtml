@@ -57,7 +57,7 @@
                         <button id="btnAddLike" class="btn btn-outline-success displayNone" onclick="AddLike(@Model.Id)">Like</button>
                         <button id="btnRemoveLike" class="btn btn-success" onclick="RemoveLike(@Model.Id)">Un Like</button>
                         <button id="btnAddDislike" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
-                        <button class="btn btn-danger displayNone" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
+                        <button id="btnRemoveDislike" class="btn btn-danger displayNone" onclick="RemoveDislike(@Model.Id)">Un Dislike</button>
                     }
 
                     if (Model.MovieStatus == DemoMovies.ViewModels.MovieLikeStatus.Disliked)

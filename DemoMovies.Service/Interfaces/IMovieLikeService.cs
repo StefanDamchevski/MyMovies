@@ -7,8 +7,7 @@ namespace DemoMovies.Service.Interfaces
     {
         void AddLike(int movieId, int userId);
         List<MovieLike> GetAll();
-        void UnLike(int movieId, int userId);
+        void Remove(int movieId, int userId);
         void AddDislike(int movieId, int userId);
-        void UnDislike(int movieId, int userId);
     }
 }

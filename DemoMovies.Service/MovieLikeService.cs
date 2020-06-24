@@ -44,7 +44,7 @@ namespace DemoMovies.Service
             return MovieLikeRepository.GetAll();
         }
 
-        public void UnLike(int movieId, int userId)
+        public void Remove(int movieId, int userId)
         {
             MovieLike movieLike = MovieLikeRepository.GetByForeignKey(movieId, userId);
             MovieLikeRepository.Remove(movieLike);
@@ -73,12 +73,6 @@ namespace DemoMovies.Service
             movieDisLike.UserId = userId;
             movieDisLike.DateCreated = DateTime.Now;
             return movieDisLike;
-        }
-
-        public void UnDislike(int movieId, int userId)
-        {
-            MovieLike movieLike = MovieLikeRepository.GetByForeignKey(movieId, userId);
-            MovieLikeRepository.Remove(movieLike);
         }
     }
 }

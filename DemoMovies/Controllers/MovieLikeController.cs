@@ -24,7 +24,7 @@ namespace DemoMovies.Controllers
         public IActionResult UnLike([FromBody] RequestLikeModel model)
         {
             int userId = Convert.ToInt32(User.FindFirst("Id").Value);
-            MovieLikeService.UnLike(model.Id, userId);
+            MovieLikeService.Remove(model.Id, userId);
             return Ok();
         }
         [HttpPost]
@@ -37,7 +37,7 @@ namespace DemoMovies.Controllers
         public IActionResult UnDislike([FromBody] RequestLikeModel model)
         {
             int userId = Convert.ToInt32(User.FindFirst("Id").Value);
-            MovieLikeService.UnDislike(model.Id, userId);
+            MovieLikeService.Remove(model.Id, userId);
             return Ok();
         }
     }
