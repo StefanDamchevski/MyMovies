@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z9eSSVQK8SC8dOOqpmIFJ9u1S04babkoS9SNKOkjvMvcJbS5LqgebefoTyzkPxtEF5qQAzff+e482d45qozfsA==",
+  "dgSpecHash": "UpBNxHZeDjPB4JCVNgg6KG8pIg0iQtCLE9gkL3Rh6qNS8khP+ZcUSbCLlwBqZwCZclngplkM2P/NnkagCtyX8Q==",
   "success": true,
-  "projectFilePath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
+  "projectFilePath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\DemoMovies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stefan\\.nuget\\packages\\bcrypt.net-next\\4.0.0\\bcrypt.net-next.4.0.0.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Data\\DemoMovies.Data.csproj": {}
+    "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Data\\DemoMovies.Data.csproj": {}
   },
   "projects": {
-    "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Data\\DemoMovies.Data.csproj": {
+    "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Data\\DemoMovies.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Data\\DemoMovies.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Data\\DemoMovies.Data.csproj",
         "projectName": "DemoMovies.Data",
-        "projectPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Data\\DemoMovies.Data.csproj",
+        "projectPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Data\\DemoMovies.Data.csproj",
         "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-        "outputPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Data\\obj\\",
+        "outputPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,7 +63,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
