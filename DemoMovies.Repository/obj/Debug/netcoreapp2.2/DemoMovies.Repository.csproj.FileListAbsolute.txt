@@ -40,9 +40,9 @@ D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\bin\Debug\netcoreapp2.2\Dem
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\bin\Debug\netcoreapp2.2\DemoMovies.Data.dll
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\bin\Debug\netcoreapp2.2\DemoMovies.Data.pdb
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.csprojAssemblyReference.cache
-D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.csproj.CoreCompileInputs.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.AssemblyInfoInputs.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.AssemblyInfo.cs
+D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.csproj.CoreCompileInputs.cache
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.csproj.CopyComplete
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.dll
 D:\Academy\MVC\MyMovies-master\DemoMovies.Repository\obj\Debug\netcoreapp2.2\DemoMovies.Repository.pdb

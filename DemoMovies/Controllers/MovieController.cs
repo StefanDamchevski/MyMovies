@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace DemoMovies.Controllers
 {
@@ -31,7 +30,6 @@ namespace DemoMovies.Controllers
                 .ToList();
 
             model.SideBarData = MovieService.GetSideBarData();
-
             return View(model);
         }
         [Authorize(Policy = "IsAdmin")]
