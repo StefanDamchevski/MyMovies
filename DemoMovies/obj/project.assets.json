@@ -13155,11 +13155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
+      "projectUniqueName": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\DemoMovies.csproj",
       "projectName": "DemoMovies",
-      "projectPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
+      "projectPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\DemoMovies.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\obj\\",
+      "outputPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -13175,8 +13175,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Service\\DemoMovies.Service.csproj": {
-              "projectPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Service\\DemoMovies.Service.csproj"
+            "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Service\\DemoMovies.Service.csproj": {
+              "projectPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Service\\DemoMovies.Service.csproj"
             }
           }
         }
