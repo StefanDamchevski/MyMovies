@@ -13155,11 +13155,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\DemoMovies.csproj",
+      "projectUniqueName": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
       "projectName": "DemoMovies",
-      "projectPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\DemoMovies.csproj",
+      "projectPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\DemoMovies.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies\\obj\\",
+      "outputPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -13175,8 +13175,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Service\\DemoMovies.Service.csproj": {
-              "projectPath": "C:\\Users\\Stefan\\Documents\\GitHub\\MyMovies\\DemoMovies.Service\\DemoMovies.Service.csproj"
+            "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Service\\DemoMovies.Service.csproj": {
+              "projectPath": "D:\\Academy\\MVC\\MyMovies-master\\DemoMovies.Service\\DemoMovies.Service.csproj"
             }
           }
         }
@@ -13222,7 +13222,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
